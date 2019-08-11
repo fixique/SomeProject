@@ -8,3 +8,5 @@
 
 "AuthPage.InputField.Errors.empty" = "Field cannot be empty";
 "AuthPage.InputField.Errors.incorrect" = "Invalid format";
+"AuthPage.InputField.Email.placeholder" = "Email";
+"AuthPage.InputField.Password.placeholder" = "Password";

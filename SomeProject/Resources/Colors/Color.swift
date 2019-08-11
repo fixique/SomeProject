@@ -16,6 +16,11 @@ enum Color {
         static let textGray = UIColor(hexString: "B9BCC5")
         static let purple = UIColor(hexString: "7C42FB")
         static let red = UIColor(hexString: "D82424")
+        static let white = UIColor(hexString: "FFFFFF")
+    }
+
+    enum Main {
+        static let background = Figma.white
     }
 
     enum InputFields {

@@ -55,10 +55,11 @@ final class RoundInputFieldView: UIView {
 
     // MARK: - Internal Methods
 
-    func configure(placeholder: String?, correction: UITextAutocorrectionType, keyboardType: UIKeyboardType) {
+    func configure(placeholder: String?, correction: UITextAutocorrectionType, keyboardType: UIKeyboardType, contentType: UITextContentType) {
         inputField.placeholder = placeholder
         inputField.autocorrectionType = correction
         inputField.keyboardType = keyboardType
+        inputField.textContentType = contentType
     }
 
 }

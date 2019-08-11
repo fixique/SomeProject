@@ -12,11 +12,21 @@ enum L10n {
 
     enum Inputfield {
 
+      enum Email {
+        /// Email
+        static let placeholder = L10n.tr("Localizable", "AuthPage.InputField.Email.placeholder")
+      }
+
       enum Errors {
         /// Field cannot be empty
         static let empty = L10n.tr("Localizable", "AuthPage.InputField.Errors.empty")
         /// Invalid format
         static let incorrect = L10n.tr("Localizable", "AuthPage.InputField.Errors.incorrect")
+      }
+
+      enum Password {
+        /// Password
+        static let placeholder = L10n.tr("Localizable", "AuthPage.InputField.Password.placeholder")
       }
     }
   }
