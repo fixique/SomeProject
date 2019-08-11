@@ -32,6 +32,7 @@
 		57162F602300A51E00B05851 /* TextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F5F2300A51E00B05851 /* TextFieldValidator.swift */; };
 		57162F672300B8F700B05851 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F662300B8F700B05851 /* UIButton.swift */; };
 		57162F692300BA7700B05851 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F682300BA7700B05851 /* UIImage.swift */; };
+		57162F6B2300D3A900B05851 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F6A2300D3A900B05851 /* Regex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		57162F5F2300A51E00B05851 /* TextFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldValidator.swift; sourceTree = "<group>"; };
 		57162F662300B8F700B05851 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		57162F682300BA7700B05851 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		57162F6A2300D3A900B05851 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		A0AE20861AC70ED27B6D01A9 /* Pods-SomeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.debug.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A82B2FF762F035AD669D0EEE /* Pods-SomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.release.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -268,6 +270,7 @@
 		57162F3E230095CC00B05851 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				57162F6A2300D3A900B05851 /* Regex.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				57162F30230086A300B05851 /* AuthPageModuleInput.swift in Sources */,
 				57162EFF2300768C00B05851 /* AppDelegate.swift in Sources */,
 				57162F32230086B400B05851 /* AuthPageModuleOutput.swift in Sources */,
+				57162F6B2300D3A900B05851 /* Regex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

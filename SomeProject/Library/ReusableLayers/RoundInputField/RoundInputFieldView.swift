@@ -33,9 +33,12 @@ final class RoundInputFieldView: UIView {
         static let intrinsicSize = CGSize(width: 250.0, height: 39.0)
         static let errorLabelTopSpace: CGFloat = 5.0
         static let errorLabelLeftSpace: CGFloat = 14.0
+        static let errorLabelHeight: CGFloat = 12.0
 
         static let fieldStrokeWidth: CGFloat = 1.0
         static let fieldMargin: UIEdgeInsets = UIEdgeInsets(top: -8, left: 14, bottom: 8, right: 14)
+
+        static let animationDuration: TimeInterval = 0.3
     }
 
     // MARK: - Public Properties
@@ -55,6 +58,7 @@ final class RoundInputFieldView: UIView {
     private let errorLabel = UILabel()
 
     private var nextInput: UIResponder?
+    private var isErrorState = false
 
     // MARK: - Initialization
 
@@ -85,6 +89,7 @@ final class RoundInputFieldView: UIView {
 
     // MARK: - Internal Methods
 
+    /// Method for configure textfield
     func configure(placeholder: String?, correction: UITextAutocorrectionType, keyboardType: UIKeyboardType, mode: RoundInputFieldView.Mode) {
         inputField.attributedPlaceholder = NSAttributedString(string: placeholder ?? "",
                                                               attributes: [NSAttributedString.Key.foregroundColor: Color.InputFields.RoundInputField.text,
@@ -101,6 +106,15 @@ final class RoundInputFieldView: UIView {
         nextInput = nextResponder
     }
 
+    /// Method will update UI and return state
+    func isValid() -> Bool {
+        if !isErrorState {
+            // case if user didn't activate this text field
+            validate()
+        }
+        return !isErrorState
+    }
+
 }
 
 // MARK: - Configuration
@@ -115,7 +129,7 @@ private extension RoundInputFieldView {
     }
 
     func configureErrorLabel() {
-        errorLabel.alpha = 1.0
+        errorLabel.alpha = 0.0
         errorLabel.font = .systemFont(ofSize: 10.0, weight: .regular)
         errorLabel.textColor = Color.InputFields.RoundInputField.error
         errorLabel.text = "Test string"
@@ -133,6 +147,7 @@ private extension RoundInputFieldView {
         inputField.font = .systemFont(ofSize: 12.0, weight: .regular)
         inputField.textColor = Color.InputFields.RoundInputField.tint
         inputField.tintColor = Color.InputFields.RoundInputField.tint
+        inputField.addTarget(self, action: #selector(textfieldEditingChange(_:)), for: .editingChanged)
         inputField.delegate = self
         inputFieldContainer.addSubview(inputField)
         inputField.translatesAutoresizingMaskIntoConstraints = false
@@ -158,6 +173,7 @@ private extension RoundInputFieldView {
         let leftErrorLabelConstraint = errorLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: Constants.errorLabelLeftSpace)
         let rightErrorLabelConstraint = errorLabel.rightAnchor.constraint(equalTo: self.rightAnchor)
         let bottomErrorLabelConstraint = errorLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        let heightErrorlabelConstraint = errorLabel.heightAnchor.constraint(equalToConstant: Constants.errorLabelHeight)
 
         NSLayoutConstraint.activate([topFieldConstraint,
                                      leftFieldConstraint,
@@ -167,7 +183,36 @@ private extension RoundInputFieldView {
                                      topErrorLabelConstraint,
                                      leftErrorLabelConstraint,
                                      rightErrorLabelConstraint,
-                                     bottomErrorLabelConstraint])
+                                     bottomErrorLabelConstraint,
+                                     heightErrorlabelConstraint])
+    }
+
+}
+
+// MARK: - Private Methods
+
+private extension RoundInputFieldView {
+
+    func validate() {
+        guard let validator = validator else {
+            return
+        }
+        let (isValid, errorMessage) = validator.validate(inputField.text)
+        isErrorState = !isValid
+        setError(text: errorMessage)
+    }
+
+    func setError(text: String?) {
+        errorLabel.text = text
+        UIView.animate(withDuration: Constants.animationDuration) {
+            self.errorLabel.alpha = self.isErrorState ? 1.0 : 0.0
+        }
+    }
+
+    @objc
+    func textfieldEditingChange(_ textField: UITextField) {
+        isErrorState = false
+        setError(text: nil)
     }
 
 }
@@ -181,7 +226,7 @@ extension RoundInputFieldView: UITextFieldDelegate {
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-//        validate()
+        validate()
         onEndEditing?(textField)
     }
 
