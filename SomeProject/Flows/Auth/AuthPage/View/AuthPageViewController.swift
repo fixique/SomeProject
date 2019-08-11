@@ -10,6 +10,12 @@ import UIKit
 
 final class AuthPageViewController: UIViewController {
 
+    // MARK: - Constants
+
+    private enum Constants {
+        static let logoSize = CGSize(width: 150.0, height: 150.0)
+    }
+
     // MARK: - Properties
 
     var output: AuthPageViewOutput?
@@ -29,6 +35,17 @@ extension AuthPageViewController: AuthPageViewInput {
 
     func setupInitialState() {
 
+    }
+
+}
+
+// MARK: - Configuration
+
+private extension AuthPageViewController {
+
+    func configureLogo() -> UIImageView {
+        let image = UIImage(asset: Asset.AuthPage.logo)
+        return UIImageView(image: image)
     }
 
 }

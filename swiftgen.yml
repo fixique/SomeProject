@@ -1,0 +1,8 @@
+xcassets:
+  paths: SomeProject/Resources/Images/Assets.xcassets
+  templateName: swift4
+  output: SomeProject/Resources/Images/Assets.swift
+strings:
+  paths: SomeProject/Resources/Strings/Localizable.strings
+  templateName: structured-swift4
+  output: SomeProject/Resources/Strings/Strings.swift
