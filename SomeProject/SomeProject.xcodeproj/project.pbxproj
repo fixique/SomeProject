@@ -14,6 +14,14 @@
 		57162F182300832B00B05851 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F172300832B00B05851 /* Router.swift */; };
 		57162F1A2300834B00B05851 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F192300834B00B05851 /* Presentable.swift */; };
 		57162F1C2300843800B05851 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F1B2300843800B05851 /* BaseCoordinator.swift */; };
+		57162F202300857E00B05851 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F1F2300857E00B05851 /* AuthCoordinator.swift */; };
+		57162F282300865400B05851 /* AuthPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F272300865400B05851 /* AuthPageViewController.swift */; };
+		57162F2A2300867700B05851 /* AuthPageViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F292300867700B05851 /* AuthPageViewInput.swift */; };
+		57162F2C2300868300B05851 /* AuthPageViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F2B2300868300B05851 /* AuthPageViewOutput.swift */; };
+		57162F2E2300869300B05851 /* AuthPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F2D2300869300B05851 /* AuthPagePresenter.swift */; };
+		57162F30230086A300B05851 /* AuthPageModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F2F230086A300B05851 /* AuthPageModuleInput.swift */; };
+		57162F32230086B400B05851 /* AuthPageModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F31230086B400B05851 /* AuthPageModuleOutput.swift */; };
+		57162F34230086CA00B05851 /* AuthPageModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F33230086CA00B05851 /* AuthPageModuleConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +34,14 @@
 		57162F172300832B00B05851 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		57162F192300834B00B05851 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		57162F1B2300843800B05851 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		57162F1F2300857E00B05851 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		57162F272300865400B05851 /* AuthPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPageViewController.swift; sourceTree = "<group>"; };
+		57162F292300867700B05851 /* AuthPageViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPageViewInput.swift; sourceTree = "<group>"; };
+		57162F2B2300868300B05851 /* AuthPageViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPageViewOutput.swift; sourceTree = "<group>"; };
+		57162F2D2300869300B05851 /* AuthPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPagePresenter.swift; sourceTree = "<group>"; };
+		57162F2F230086A300B05851 /* AuthPageModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPageModuleInput.swift; sourceTree = "<group>"; };
+		57162F31230086B400B05851 /* AuthPageModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPageModuleOutput.swift; sourceTree = "<group>"; };
+		57162F33230086CA00B05851 /* AuthPageModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPageModuleConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				57162F102300820E00B05851 /* Application */,
+				57162F1D2300853800B05851 /* Flows */,
 				57162F112300824100B05851 /* Resources */,
 				57162F122300826500B05851 /* Library */,
 				57162F14230082A000B05851 /* Protocols */,
@@ -108,6 +125,61 @@
 				57162F192300834B00B05851 /* Presentable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		57162F1D2300853800B05851 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				57162F1E2300853F00B05851 /* Auth */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		57162F1E2300853F00B05851 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				57162F1F2300857E00B05851 /* AuthCoordinator.swift */,
+				57162F21230085D800B05851 /* AuthPage */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		57162F21230085D800B05851 /* AuthPage */ = {
+			isa = PBXGroup;
+			children = (
+				57162F242300862700B05851 /* Configurator */,
+				57162F232300862100B05851 /* Presenter */,
+				57162F222300861A00B05851 /* View */,
+			);
+			path = AuthPage;
+			sourceTree = "<group>";
+		};
+		57162F222300861A00B05851 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				57162F272300865400B05851 /* AuthPageViewController.swift */,
+				57162F292300867700B05851 /* AuthPageViewInput.swift */,
+				57162F2B2300868300B05851 /* AuthPageViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		57162F232300862100B05851 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				57162F2D2300869300B05851 /* AuthPagePresenter.swift */,
+				57162F2F230086A300B05851 /* AuthPageModuleInput.swift */,
+				57162F31230086B400B05851 /* AuthPageModuleOutput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		57162F242300862700B05851 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				57162F33230086CA00B05851 /* AuthPageModuleConfigurator.swift */,
+			);
+			path = Configurator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,11 +252,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57162F2C2300868300B05851 /* AuthPageViewOutput.swift in Sources */,
 				57162F1C2300843800B05851 /* BaseCoordinator.swift in Sources */,
 				57162F16230082C000B05851 /* Coordinator.swift in Sources */,
+				57162F282300865400B05851 /* AuthPageViewController.swift in Sources */,
 				57162F1A2300834B00B05851 /* Presentable.swift in Sources */,
+				57162F2A2300867700B05851 /* AuthPageViewInput.swift in Sources */,
 				57162F182300832B00B05851 /* Router.swift in Sources */,
+				57162F2E2300869300B05851 /* AuthPagePresenter.swift in Sources */,
+				57162F34230086CA00B05851 /* AuthPageModuleConfigurator.swift in Sources */,
+				57162F202300857E00B05851 /* AuthCoordinator.swift in Sources */,
+				57162F30230086A300B05851 /* AuthPageModuleInput.swift in Sources */,
 				57162EFF2300768C00B05851 /* AppDelegate.swift in Sources */,
+				57162F32230086B400B05851 /* AuthPageModuleOutput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +404,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JE6A9LTMD3;
-				INFOPLIST_FILE = SomeProject/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SomeProject/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -342,7 +422,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JE6A9LTMD3;
-				INFOPLIST_FILE = SomeProject/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SomeProject/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
