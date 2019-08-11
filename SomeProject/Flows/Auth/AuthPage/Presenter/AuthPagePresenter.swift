@@ -23,7 +23,7 @@ extension AuthPagePresenter: AuthPageModuleInput {}
 extension AuthPagePresenter: AuthPageViewOutput {
 
     func viewLoaded() {
-
+        view?.setupInitialState()
     }
 
 }

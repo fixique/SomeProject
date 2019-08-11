@@ -7,6 +7,19 @@ import Foundation
 
 // swiftlint:disable explicit_type_interface identifier_name line_length nesting type_body_length type_name
 enum L10n {
+
+  enum Authpage {
+
+    enum Inputfield {
+
+      enum Errors {
+        /// Field cannot be empty
+        static let empty = L10n.tr("Localizable", "AuthPage.InputField.Errors.empty")
+        /// Invalid format
+        static let incorrect = L10n.tr("Localizable", "AuthPage.InputField.Errors.incorrect")
+      }
+    }
+  }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length nesting type_body_length type_name
 

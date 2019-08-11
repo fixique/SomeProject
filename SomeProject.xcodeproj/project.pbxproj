@@ -28,6 +28,9 @@
 		57162F54230099C800B05851 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 57162F53230099C800B05851 /* Localizable.strings */; };
 		57162F56230099D600B05851 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F55230099D600B05851 /* Strings.swift */; };
 		57162F5823009A8100B05851 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F5723009A8100B05851 /* Assets.swift */; };
+		57162F5B23009B4F00B05851 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F5A23009B4F00B05851 /* UIColor.swift */; };
+		57162F5D2300A32A00B05851 /* RoundInputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F5C2300A32A00B05851 /* RoundInputFieldView.swift */; };
+		57162F602300A51E00B05851 /* TextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F5F2300A51E00B05851 /* TextFieldValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,9 @@
 		57162F53230099C800B05851 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		57162F55230099D600B05851 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		57162F5723009A8100B05851 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		57162F5A23009B4F00B05851 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		57162F5C2300A32A00B05851 /* RoundInputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundInputFieldView.swift; sourceTree = "<group>"; };
+		57162F5F2300A51E00B05851 /* TextFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldValidator.swift; sourceTree = "<group>"; };
 		A0AE20861AC70ED27B6D01A9 /* Pods-SomeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.debug.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A82B2FF762F035AD669D0EEE /* Pods-SomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.release.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +139,7 @@
 		57162F122300826500B05851 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				57162F5923009B3E00B05851 /* Extensions */,
 				57162F3523008F8C00B05851 /* ReusableLayers */,
 				57162F132300829300B05851 /* BaseClasses */,
 			);
@@ -142,6 +149,7 @@
 		57162F132300829300B05851 /* BaseClasses */ = {
 			isa = PBXGroup;
 			children = (
+				57162F5E2300A51000B05851 /* TextFieldValidator */,
 				57162F1B2300843800B05851 /* BaseCoordinator.swift */,
 			);
 			path = BaseClasses;
@@ -224,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				57162F3723008FCA00B05851 /* RoundInputField.swift */,
+				57162F5C2300A32A00B05851 /* RoundInputFieldView.swift */,
 			);
 			path = RoundInputField;
 			sourceTree = "<group>";
@@ -259,6 +268,22 @@
 			children = (
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		57162F5923009B3E00B05851 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				57162F5A23009B4F00B05851 /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		57162F5E2300A51000B05851 /* TextFieldValidator */ = {
+			isa = PBXGroup;
+			children = (
+				57162F5F2300A51E00B05851 /* TextFieldValidator.swift */,
+			);
+			path = TextFieldValidator;
 			sourceTree = "<group>";
 		};
 		E9E26F996D488C4A4F312D88 /* Pods */ = {
@@ -411,13 +436,16 @@
 				57162F16230082C000B05851 /* Coordinator.swift in Sources */,
 				57162F282300865400B05851 /* AuthPageViewController.swift in Sources */,
 				57162F1A2300834B00B05851 /* Presentable.swift in Sources */,
+				57162F5D2300A32A00B05851 /* RoundInputFieldView.swift in Sources */,
 				57162F5823009A8100B05851 /* Assets.swift in Sources */,
 				57162F2A2300867700B05851 /* AuthPageViewInput.swift in Sources */,
 				57162F182300832B00B05851 /* Router.swift in Sources */,
 				57162F50230099A200B05851 /* Color.swift in Sources */,
 				57162F2E2300869300B05851 /* AuthPagePresenter.swift in Sources */,
+				57162F602300A51E00B05851 /* TextFieldValidator.swift in Sources */,
 				57162F34230086CA00B05851 /* AuthPageModuleConfigurator.swift in Sources */,
 				57162F202300857E00B05851 /* AuthCoordinator.swift in Sources */,
+				57162F5B23009B4F00B05851 /* UIColor.swift in Sources */,
 				57162F56230099D600B05851 /* Strings.swift in Sources */,
 				57162F30230086A300B05851 /* AuthPageModuleInput.swift in Sources */,
 				57162EFF2300768C00B05851 /* AppDelegate.swift in Sources */,

@@ -34,7 +34,16 @@ final class AuthPageViewController: UIViewController {
 extension AuthPageViewController: AuthPageViewInput {
 
     func setupInitialState() {
+        view.backgroundColor = UIColor.white
+        let emailInput = RoundInputFieldView()
+        emailInput.configure(placeholder: "Email", correction: .no, keyboardType: .emailAddress)
+        view.addSubview(emailInput)
+        emailInput.translatesAutoresizingMaskIntoConstraints = false
 
+        let horizontalConstraint = emailInput.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        let verticalConstraint = emailInput.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+
+        NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
     }
 
 }
