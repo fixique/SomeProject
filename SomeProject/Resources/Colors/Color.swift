@@ -15,6 +15,7 @@ enum Color {
         static let strokeGray = UIColor(hexString: "DCDCDC")
         static let textGray = UIColor(hexString: "B9BCC5")
         static let purple = UIColor(hexString: "7C42FB")
+        static let purpleBold = UIColor(hexString: "631DFA")
         static let red = UIColor(hexString: "D82424")
         static let white = UIColor(hexString: "FFFFFF")
     }
@@ -33,4 +34,12 @@ enum Color {
         }
     }
 
+    enum Buttons {
+        enum MainPurple {
+            static let background = Figma.purple
+            static let highlighted = Figma.purple.withAlphaComponent(0.6)
+            static let stroke = Figma.purpleBold
+            static let text = Figma.white
+        }
+    }
 }

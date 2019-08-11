@@ -31,6 +31,8 @@
 		57162F5B23009B4F00B05851 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F5A23009B4F00B05851 /* UIColor.swift */; };
 		57162F5D2300A32A00B05851 /* RoundInputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F5C2300A32A00B05851 /* RoundInputFieldView.swift */; };
 		57162F602300A51E00B05851 /* TextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F5F2300A51E00B05851 /* TextFieldValidator.swift */; };
+		57162F672300B8F700B05851 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F662300B8F700B05851 /* UIButton.swift */; };
+		57162F692300BA7700B05851 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F682300BA7700B05851 /* UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,8 @@
 		57162F5A23009B4F00B05851 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		57162F5C2300A32A00B05851 /* RoundInputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundInputFieldView.swift; sourceTree = "<group>"; };
 		57162F5F2300A51E00B05851 /* TextFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldValidator.swift; sourceTree = "<group>"; };
+		57162F662300B8F700B05851 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		57162F682300BA7700B05851 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		A0AE20861AC70ED27B6D01A9 /* Pods-SomeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.debug.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A82B2FF762F035AD669D0EEE /* Pods-SomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.release.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +113,7 @@
 				57162F102300820E00B05851 /* Application */,
 				57162F1D2300853800B05851 /* Flows */,
 				57162F122300826500B05851 /* Library */,
+				57162F612300B88500B05851 /* Styles */,
 				57162F112300824100B05851 /* Resources */,
 				57162F14230082A000B05851 /* Protocols */,
 			);
@@ -274,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				57162F5A23009B4F00B05851 /* UIColor.swift */,
+				57162F682300BA7700B05851 /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -284,6 +290,14 @@
 				57162F5F2300A51E00B05851 /* TextFieldValidator.swift */,
 			);
 			path = TextFieldValidator;
+			sourceTree = "<group>";
+		};
+		57162F612300B88500B05851 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				57162F662300B8F700B05851 /* UIButton.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 		E9E26F996D488C4A4F312D88 /* Pods */ = {
@@ -431,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57162F3823008FCA00B05851 /* RoundInputField.swift in Sources */,
+				57162F692300BA7700B05851 /* UIImage.swift in Sources */,
 				57162F2C2300868300B05851 /* AuthPageViewOutput.swift in Sources */,
 				57162F1C2300843800B05851 /* BaseCoordinator.swift in Sources */,
 				57162F16230082C000B05851 /* Coordinator.swift in Sources */,
@@ -441,6 +456,7 @@
 				57162F2A2300867700B05851 /* AuthPageViewInput.swift in Sources */,
 				57162F182300832B00B05851 /* Router.swift in Sources */,
 				57162F50230099A200B05851 /* Color.swift in Sources */,
+				57162F672300B8F700B05851 /* UIButton.swift in Sources */,
 				57162F2E2300869300B05851 /* AuthPagePresenter.swift in Sources */,
 				57162F602300A51E00B05851 /* TextFieldValidator.swift in Sources */,
 				57162F34230086CA00B05851 /* AuthPageModuleConfigurator.swift in Sources */,

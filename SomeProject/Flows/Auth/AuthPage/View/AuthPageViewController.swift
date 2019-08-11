@@ -17,6 +17,7 @@ final class AuthPageViewController: UIViewController {
         static let logoVerticalOffset: CGFloat = -150
         static let emailFieldTopOffset: CGFloat = 30.0
         static let emailFieldBottomOffset: CGFloat = 15.0
+        static let buttonSize = CGSize(width: 250.0, height: 30.0)
     }
 
     // MARK: - Properties
@@ -29,12 +30,17 @@ final class AuthPageViewController: UIViewController {
     private let imageView = UIImageView()
     private let emailField = RoundInputFieldView()
     private let passwordField = RoundInputFieldView()
+    private let loginButton = UIButton(type: .custom)
 
     // MARK: - UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
         output?.viewLoaded()
+    }
+
+    override func viewDidLayoutSubviews() {
+        loginButton.mainPrurpleStyle()
     }
 
 }
@@ -47,6 +53,7 @@ extension AuthPageViewController: AuthPageViewInput {
         configureBackground()
         configureLogo()
         configureInputFields()
+        configureLoginButton()
     }
 
 }
@@ -97,6 +104,20 @@ private extension AuthPageViewController {
         let passwordHorizontalConstraint = passwordField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
 
         NSLayoutConstraint.activate([emailTopConstraint, emailHorizontalConstraint, passwordTopConstraint, passwordHorizontalConstraint])
+    }
+
+    func configureLoginButton() {
+        scrollView.addSubview(loginButton)
+        loginButton.mainPrurpleStyle()
+        loginButton.setTitle(L10n.Authpage.Buttons.Login.text, for: .normal)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+
+        let topConstraint = loginButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: Constants.emailFieldBottomOffset)
+        let horizantalConstraint = loginButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
+        let heightConstraint = loginButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize.height)
+        let widthConstraint = loginButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize.width)
+
+        NSLayoutConstraint.activate([topConstraint, horizantalConstraint, heightConstraint, widthConstraint])
     }
 
 }

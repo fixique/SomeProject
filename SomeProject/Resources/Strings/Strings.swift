@@ -10,6 +10,14 @@ enum L10n {
 
   enum Authpage {
 
+    enum Buttons {
+
+      enum Login {
+        /// Login
+        static let text = L10n.tr("Localizable", "AuthPage.Buttons.Login.text")
+      }
+    }
+
     enum Inputfield {
 
       enum Email {
