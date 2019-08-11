@@ -10,6 +10,22 @@ import UIKit
 
 final class RoundInputFieldView: UIView {
 
+    // MARK: - Enum
+
+    enum Mode {
+        case email
+        case password
+
+        var contentType: UITextContentType {
+            switch self {
+            case .email:
+                return .emailAddress
+            case .password:
+                return .password
+            }
+        }
+    }
+
     // MARK: - Constants
 
     private enum Constants {
@@ -21,11 +37,16 @@ final class RoundInputFieldView: UIView {
 
     // MARK: - Public Properties
 
+    var onBeginEditing: ((UITextField) -> Void)?
+    var onEndEditing: ((UITextField) -> Void)?
+    var onShouldReturn: ((UITextField) -> Void)?
+    var responder: UIResponder {
+        return self.inputField
+    }
     var validator: TextFieldValidation?
+    var nextInput: UIResponder?
 
     // MARK: - Private Properties
-
-    // MARK: UI properties
 
     private let inputField: RoundInputField = RoundInputField()
     private let errorLabel: UILabel = UILabel()
@@ -55,11 +76,12 @@ final class RoundInputFieldView: UIView {
 
     // MARK: - Internal Methods
 
-    func configure(placeholder: String?, correction: UITextAutocorrectionType, keyboardType: UIKeyboardType, contentType: UITextContentType) {
+    func configure(placeholder: String?, correction: UITextAutocorrectionType, keyboardType: UIKeyboardType, mode: RoundInputFieldView.Mode) {
         inputField.placeholder = placeholder
         inputField.autocorrectionType = correction
         inputField.keyboardType = keyboardType
-        inputField.textContentType = contentType
+        inputField.textContentType = mode.contentType
+        inputField.isSecureTextEntry = mode == .password
     }
 
 }
@@ -70,6 +92,7 @@ private extension RoundInputFieldView {
 
     func setupInitialState() {
         configureErrorLabel()
+        configureInputField()
         configureConstraints()
     }
 
@@ -78,11 +101,15 @@ private extension RoundInputFieldView {
         errorLabel.font = .systemFont(ofSize: 10.0, weight: .regular)
         errorLabel.textColor = Color.InputFields.RoundInputField.error
         errorLabel.text = "Test string"
+        addSubview(errorLabel)
+    }
+
+    func configureInputField() {
+        inputField.delegate = self
+        addSubview(inputField)
     }
 
     func configureConstraints() {
-        addSubview(inputField)
-        addSubview(errorLabel)
         inputField.translatesAutoresizingMaskIntoConstraints = false
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
         let topFieldConstraint = inputField.topAnchor.constraint(equalTo: self.topAnchor)
@@ -103,6 +130,32 @@ private extension RoundInputFieldView {
                                      leftErrorLabelConstraint,
                                      rightErrorLabelConstraint,
                                      bottomErrorLabelConstraint])
+    }
+
+}
+
+// MARK: - UITextFieldDelegate
+
+extension RoundInputFieldView: UITextFieldDelegate {
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        onBeginEditing?(textField)
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+//        validate()
+        onEndEditing?(textField)
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = nextInput {
+            nextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            onShouldReturn?(textField)
+            return true
+        }
+        return false
     }
 
 }
