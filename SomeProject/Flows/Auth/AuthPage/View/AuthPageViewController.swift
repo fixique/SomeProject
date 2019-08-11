@@ -135,6 +135,7 @@ private extension AuthPageViewController {
         loginButton.mainPrurpleStyle()
         loginButton.setTitle(L10n.Authpage.Buttons.Login.text, for: .normal)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
 
         let topConstraint = loginButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: Constants.emailFieldBottomOffset)
         let horizantalConstraint = loginButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
@@ -170,6 +171,15 @@ private extension AuthPageViewController {
     @objc
     func tapOnView() {
         view.endEditing(true)
+    }
+
+    @objc
+    func loginButtonPressed() {
+        view.endEditing(true)
+        guard emailField.isValid(), passwordField.isValid() else {
+            return
+        }
+        output?.loginAction()
     }
 
 }

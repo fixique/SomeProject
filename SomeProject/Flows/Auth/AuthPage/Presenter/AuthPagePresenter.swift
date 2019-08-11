@@ -26,4 +26,8 @@ extension AuthPagePresenter: AuthPageViewOutput {
         view?.setupInitialState()
     }
 
+    func loginAction() {
+        print("Login action")
+    }
+
 }

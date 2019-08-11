@@ -11,4 +11,6 @@ import Foundation
 protocol AuthPageViewOutput {
     /// Notify presenter that view is ready
     func viewLoaded()
+    /// Notify presenter that view is ready to login action
+    func loginAction()
 }
