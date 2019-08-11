@@ -23,7 +23,6 @@
 		57162F30230086A300B05851 /* AuthPageModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F2F230086A300B05851 /* AuthPageModuleInput.swift */; };
 		57162F32230086B400B05851 /* AuthPageModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F31230086B400B05851 /* AuthPageModuleOutput.swift */; };
 		57162F34230086CA00B05851 /* AuthPageModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F33230086CA00B05851 /* AuthPageModuleConfigurator.swift */; };
-		57162F3823008FCA00B05851 /* RoundInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F3723008FCA00B05851 /* RoundInputField.swift */; };
 		57162F50230099A200B05851 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F4F230099A200B05851 /* Color.swift */; };
 		57162F54230099C800B05851 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 57162F53230099C800B05851 /* Localizable.strings */; };
 		57162F56230099D600B05851 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F55230099D600B05851 /* Strings.swift */; };
@@ -54,7 +53,6 @@
 		57162F2F230086A300B05851 /* AuthPageModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPageModuleInput.swift; sourceTree = "<group>"; };
 		57162F31230086B400B05851 /* AuthPageModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPageModuleOutput.swift; sourceTree = "<group>"; };
 		57162F33230086CA00B05851 /* AuthPageModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPageModuleConfigurator.swift; sourceTree = "<group>"; };
-		57162F3723008FCA00B05851 /* RoundInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundInputField.swift; sourceTree = "<group>"; };
 		57162F492300985200B05851 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		57162F4F230099A200B05851 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		57162F53230099C800B05851 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -236,7 +234,6 @@
 		57162F3623008F9700B05851 /* RoundInputField */ = {
 			isa = PBXGroup;
 			children = (
-				57162F3723008FCA00B05851 /* RoundInputField.swift */,
 				57162F5C2300A32A00B05851 /* RoundInputFieldView.swift */,
 			);
 			path = RoundInputField;
@@ -444,7 +441,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57162F3823008FCA00B05851 /* RoundInputField.swift in Sources */,
 				57162F692300BA7700B05851 /* UIImage.swift in Sources */,
 				57162F2C2300868300B05851 /* AuthPageViewOutput.swift in Sources */,
 				57162F1C2300843800B05851 /* BaseCoordinator.swift in Sources */,

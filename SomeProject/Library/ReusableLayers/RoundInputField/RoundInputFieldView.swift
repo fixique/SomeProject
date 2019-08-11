@@ -29,10 +29,13 @@ final class RoundInputFieldView: UIView {
     // MARK: - Constants
 
     private enum Constants {
-        static let fieldHeight: CGFloat = 30.0
+        static let fieldSize = CGSize(width: 250, height: 30.0)
         static let intrinsicSize = CGSize(width: 250.0, height: 39.0)
         static let errorLabelTopSpace: CGFloat = 5.0
         static let errorLabelLeftSpace: CGFloat = 14.0
+
+        static let fieldStrokeWidth: CGFloat = 1.0
+        static let fieldMargin: UIEdgeInsets = UIEdgeInsets(top: -8, left: 14, bottom: 8, right: 14)
     }
 
     // MARK: - Public Properties
@@ -44,12 +47,14 @@ final class RoundInputFieldView: UIView {
         return self.inputField
     }
     var validator: TextFieldValidation?
-    var nextInput: UIResponder?
 
     // MARK: - Private Properties
 
-    private let inputField: RoundInputField = RoundInputField()
-    private let errorLabel: UILabel = UILabel()
+    private let inputFieldContainer = UIView(frame: CGRect(x: 0, y: 0, width: Constants.fieldSize.width, height: Constants.fieldSize.height))
+    private let inputField = UITextField()
+    private let errorLabel = UILabel()
+
+    private var nextInput: UIResponder?
 
     // MARK: - Initialization
 
@@ -74,14 +79,26 @@ final class RoundInputFieldView: UIView {
         return Constants.intrinsicSize
     }
 
+    override func layoutSubviews() {
+        inputFieldContainer.layer.cornerRadius = inputFieldContainer.frame.height / 2
+    }
+
     // MARK: - Internal Methods
 
     func configure(placeholder: String?, correction: UITextAutocorrectionType, keyboardType: UIKeyboardType, mode: RoundInputFieldView.Mode) {
-        inputField.placeholder = placeholder
+        inputField.attributedPlaceholder = NSAttributedString(string: placeholder ?? "",
+                                                              attributes: [NSAttributedString.Key.foregroundColor: Color.InputFields.RoundInputField.text,
+                                                                           NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12, weight: .regular)])
         inputField.autocorrectionType = correction
         inputField.keyboardType = keyboardType
         inputField.textContentType = mode.contentType
         inputField.isSecureTextEntry = mode == .password
+    }
+
+    /// Sets next responder, which will be activated after 'Next' button in keyboard will be pressed
+    func setNextResponder(_ nextResponder: UIResponder) {
+        inputField.returnKeyType = .next
+        nextInput = nextResponder
     }
 
 }
@@ -92,6 +109,7 @@ private extension RoundInputFieldView {
 
     func setupInitialState() {
         configureErrorLabel()
+        configureFieldContainer()
         configureInputField()
         configureConstraints()
     }
@@ -104,20 +122,39 @@ private extension RoundInputFieldView {
         addSubview(errorLabel)
     }
 
+    func configureFieldContainer() {
+        inputFieldContainer.backgroundColor = Color.InputFields.RoundInputField.background
+        inputFieldContainer.layer.borderColor = Color.InputFields.RoundInputField.stroke.cgColor
+        inputFieldContainer.layer.borderWidth = Constants.fieldStrokeWidth
+        addSubview(inputFieldContainer)
+    }
+
     func configureInputField() {
+        inputField.font = .systemFont(ofSize: 12.0, weight: .regular)
+        inputField.textColor = Color.InputFields.RoundInputField.tint
+        inputField.tintColor = Color.InputFields.RoundInputField.tint
         inputField.delegate = self
-        addSubview(inputField)
+        inputFieldContainer.addSubview(inputField)
+        inputField.translatesAutoresizingMaskIntoConstraints = false
+
+        let topFieldConstraint = inputField.topAnchor.constraint(equalTo: inputFieldContainer.topAnchor, constant: Constants.fieldMargin.top)
+        let leftFieldConstraint = inputField.leftAnchor.constraint(equalTo: inputFieldContainer.leftAnchor, constant: Constants.fieldMargin.left)
+        let rightFieldConstraint = inputField.rightAnchor.constraint(equalTo: inputFieldContainer.rightAnchor, constant: Constants.fieldMargin.right)
+        let bottomFieldConstraint = inputField.bottomAnchor.constraint(equalTo: inputFieldContainer.bottomAnchor, constant: Constants.fieldMargin.bottom)
+
+        NSLayoutConstraint.activate([topFieldConstraint, leftFieldConstraint, rightFieldConstraint, bottomFieldConstraint])
     }
 
     func configureConstraints() {
-        inputField.translatesAutoresizingMaskIntoConstraints = false
+        inputFieldContainer.translatesAutoresizingMaskIntoConstraints = false
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
-        let topFieldConstraint = inputField.topAnchor.constraint(equalTo: self.topAnchor)
-        let leftFieldConstraint = inputField.leftAnchor.constraint(equalTo: self.leftAnchor)
-        let rightFieldConstraint = inputField.rightAnchor.constraint(equalTo: self.rightAnchor)
-        let heightFieldConstraint = inputField.heightAnchor.constraint(equalToConstant: Constants.fieldHeight)
+        let topFieldConstraint = inputFieldContainer.topAnchor.constraint(equalTo: self.topAnchor)
+        let leftFieldConstraint = inputFieldContainer.leftAnchor.constraint(equalTo: self.leftAnchor)
+        let rightFieldConstraint = inputFieldContainer.rightAnchor.constraint(equalTo: self.rightAnchor)
+        let heightFieldConstraint = inputFieldContainer.heightAnchor.constraint(equalToConstant: Constants.fieldSize.height)
+        let widthFieldConstraint = inputFieldContainer.widthAnchor.constraint(equalToConstant: Constants.fieldSize.width)
 
-        let topErrorLabelConstraint = errorLabel.topAnchor.constraint(equalTo: inputField.bottomAnchor, constant: Constants.errorLabelTopSpace)
+        let topErrorLabelConstraint = errorLabel.topAnchor.constraint(equalTo: inputFieldContainer.bottomAnchor, constant: Constants.errorLabelTopSpace)
         let leftErrorLabelConstraint = errorLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: Constants.errorLabelLeftSpace)
         let rightErrorLabelConstraint = errorLabel.rightAnchor.constraint(equalTo: self.rightAnchor)
         let bottomErrorLabelConstraint = errorLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
@@ -126,6 +163,7 @@ private extension RoundInputFieldView {
                                      leftFieldConstraint,
                                      rightFieldConstraint,
                                      heightFieldConstraint,
+                                     widthFieldConstraint,
                                      topErrorLabelConstraint,
                                      leftErrorLabelConstraint,
                                      rightErrorLabelConstraint,

@@ -112,6 +112,7 @@ private extension AuthPageViewController {
 
     func configureInputFields() {
         emailField.configure(placeholder: L10n.Authpage.Inputfield.Email.placeholder, correction: .no, keyboardType: .emailAddress, mode: RoundInputFieldView.Mode.email)
+        emailField.setNextResponder(passwordField.responder)
         passwordField.configure(placeholder: L10n.Authpage.Inputfield.Password.placeholder, correction: .no, keyboardType: .asciiCapable, mode: RoundInputFieldView.Mode.password)
         scrollView.addSubview(emailField)
         scrollView.addSubview(passwordField)
