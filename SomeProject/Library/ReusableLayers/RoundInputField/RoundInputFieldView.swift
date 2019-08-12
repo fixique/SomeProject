@@ -115,6 +115,10 @@ final class RoundInputFieldView: UIView {
         return !isErrorState
     }
 
+    func currentText() -> String {
+        return inputField.text ?? ""
+    }
+
 }
 
 // MARK: - Configuration

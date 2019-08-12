@@ -30,7 +30,8 @@ extension AuthPagePresenter: AuthPageViewOutput {
         view?.setupInitialState()
     }
 
-    func loginAction() {
+    func loginAction(email: String, password: String) {
+        UserCredentialsManager.shared.saveEmail(email)
         finishAuth?()
     }
 

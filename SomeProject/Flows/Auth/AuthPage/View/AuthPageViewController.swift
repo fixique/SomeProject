@@ -178,7 +178,7 @@ private extension AuthPageViewController {
         guard emailField.isValid(), passwordField.isValid() else {
             return
         }
-        output?.loginAction()
+        output?.loginAction(email: emailField.currentText(), password: passwordField.currentText())
     }
 
 }
