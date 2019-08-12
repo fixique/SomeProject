@@ -17,11 +17,11 @@ enum KeychainServiceError: Error {
     var errorDescription: String? {
         switch self {
         case .stringToDataConversionError:
-            return "Some"
+            return L10n.Keychainserviceerror.stringToData
         case .dataToStringConversionError:
-            return ""
+            return L10n.Keychainserviceerror.dataToString
         case .unhandledError:
-            return "unhandledError"
+            return L10n.Keychainserviceerror.unhandled
         }
     }
 }

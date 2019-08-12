@@ -44,6 +44,8 @@ enum L10n {
     static let dataToString = L10n.tr("Localizable", "KeychainServiceError.dataToString")
     /// String to Data conversion error
     static let stringToData = L10n.tr("Localizable", "KeychainServiceError.stringToData")
+    /// Error can not be handled
+    static let unhandled = L10n.tr("Localizable", "KeychainServiceError.unhandled")
   }
 
   enum Maintabbar {

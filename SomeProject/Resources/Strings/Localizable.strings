@@ -10,6 +10,7 @@
 
 "KeychainServiceError.stringToData" = "String to Data conversion error";
 "KeychainServiceError.dataToString" = "Data to String conversion error";
+"KeychainServiceError.unhandled" = "Error can not be handled";
 
 // MARK: - AuthPage
 
