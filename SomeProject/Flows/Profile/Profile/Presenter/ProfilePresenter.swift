@@ -8,6 +8,10 @@
 
 final class ProfilePresenter: ProfileModuleOutput {
 
+    // MARK: - ProfileModuleOutput
+
+    var onLogout: EmptyClosure?
+
     // MARK: - Properties
 
     weak var view: ProfileViewInput?

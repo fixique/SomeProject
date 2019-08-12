@@ -6,7 +6,7 @@
 //  Copyright © 2019 Fixique. All rights reserved.
 //
 
-typealias TabSelectClosure = (_ isInitial: Bool, _ isChanging: Bool, _ isStackEmpty: Bool) -> Void
+typealias TabSelectClosure = (_ isInitial: Bool) -> Void
 
 protocol MainTabBarModuleOutput: class {
     var onRandomImageFlowSelect: TabSelectClosure? { get set }

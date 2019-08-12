@@ -18,37 +18,21 @@ final class MainTabBarPresenter: MainTabBarModuleOutput {
 
     weak var view: MainTabBarViewInput?
 
-    // MARK: - Private Properties
-
-    private var currentTab: MainTab? = .randomImages
-
 }
 
 // MARK: - MainTabBarViewOutput
 
 extension MainTabBarPresenter: MainTabBarViewOutput {
 
-    func selectTab(with tab: MainTab, isInitial: Bool, isStackEmpty: Bool) {
-        let isChanging = currentTabIsChanged(on: tab)
+    func selectTab(with tab: MainTab, isInitial: Bool) {
         switch tab {
         case .randomImages:
-            onRandomImageFlowSelect?(isInitial, isChanging, isStackEmpty)
+            onRandomImageFlowSelect?(isInitial)
         case .playList:
-            onPlayListFlowSelect?(isInitial, isChanging, isStackEmpty)
+            onPlayListFlowSelect?(isInitial)
         case .profile:
-            onProfileFlowSelect?(isInitial, isChanging, isStackEmpty)
+            onProfileFlowSelect?(isInitial)
         }
-        currentTab = tab
-    }
-
-}
-
-// MARK: - Private Methods
-
-private extension MainTabBarPresenter {
-
-    func currentTabIsChanged(on tab: MainTab) -> Bool {
-        return currentTab != tab
     }
 
 }

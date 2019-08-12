@@ -1,13 +1,13 @@
 //
-//  RandomImagesModuleOutput.swift
+//  ProfileCoordinatorOutput.swift
 //  SomeProject
 //
-//  Created by Vladislav Krupenko on 12/08/2019.
+//  Created by Vladislav Krupenko on 13/08/2019.
 //  Copyright © 2019 Fixique. All rights reserved.
 //
 
 import Foundation
 
-protocol ProfileModuleOutput: class {
+protocol ProfileCoordinatorOutput: class {
     var onLogout: EmptyClosure? { get set }
 }

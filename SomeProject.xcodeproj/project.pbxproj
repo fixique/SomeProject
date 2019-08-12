@@ -64,6 +64,12 @@
 		5716D7F123020A3D006AEE7C /* ProfileViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D7E223020A3D006AEE7C /* ProfileViewOutput.swift */; };
 		5716D7F223020A3D006AEE7C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D7E323020A3D006AEE7C /* ProfileViewController.swift */; };
 		5716D7F323020A3D006AEE7C /* ProfileModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D7E523020A3D006AEE7C /* ProfileModuleConfigurator.swift */; };
+		5716D7F523020D87006AEE7C /* RandomImagesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D7F423020D87006AEE7C /* RandomImagesCoordinator.swift */; };
+		5716D7F923020F42006AEE7C /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D7F823020F42006AEE7C /* MainRouter.swift */; };
+		5716D7FB23020F72006AEE7C /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D7FA23020F72006AEE7C /* UIApplication.swift */; };
+		5716D7FD23021045006AEE7C /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D7FC23021045006AEE7C /* ProfileCoordinator.swift */; };
+		5716D7FF230210FD006AEE7C /* ProfileCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D7FE230210FD006AEE7C /* ProfileCoordinatorOutput.swift */; };
+		5716D801230211E1006AEE7C /* PlayListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D800230211E1006AEE7C /* PlayListCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +133,12 @@
 		5716D7E223020A3D006AEE7C /* ProfileViewOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewOutput.swift; sourceTree = "<group>"; };
 		5716D7E323020A3D006AEE7C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5716D7E523020A3D006AEE7C /* ProfileModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileModuleConfigurator.swift; sourceTree = "<group>"; };
+		5716D7F423020D87006AEE7C /* RandomImagesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImagesCoordinator.swift; sourceTree = "<group>"; };
+		5716D7F823020F42006AEE7C /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		5716D7FA23020F72006AEE7C /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		5716D7FC23021045006AEE7C /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		5716D7FE230210FD006AEE7C /* ProfileCoordinatorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinatorOutput.swift; sourceTree = "<group>"; };
+		5716D800230211E1006AEE7C /* PlayListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListCoordinator.swift; sourceTree = "<group>"; };
 		A0AE20861AC70ED27B6D01A9 /* Pods-SomeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.debug.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A82B2FF762F035AD669D0EEE /* Pods-SomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.release.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,6 +231,7 @@
 				5716D7A12301F27C006AEE7C /* KeychainService */,
 				57162F5E2300A51000B05851 /* TextFieldValidator */,
 				57162F1B2300843800B05851 /* BaseCoordinator.swift */,
+				5716D7F823020F42006AEE7C /* MainRouter.swift */,
 			);
 			path = BaseClasses;
 			sourceTree = "<group>";
@@ -347,6 +360,7 @@
 			children = (
 				57162F5A23009B4F00B05851 /* UIColor.swift */,
 				57162F682300BA7700B05851 /* UIImage.swift */,
+				5716D7FA23020F72006AEE7C /* UIApplication.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -426,6 +440,7 @@
 		5716D7BB23020752006AEE7C /* RandomImages */ = {
 			isa = PBXGroup;
 			children = (
+				5716D7F423020D87006AEE7C /* RandomImagesCoordinator.swift */,
 				5716D7BC23020762006AEE7C /* RandomImages */,
 			);
 			path = RandomImages;
@@ -480,6 +495,7 @@
 		5716D7CF23020A3D006AEE7C /* PlayList */ = {
 			isa = PBXGroup;
 			children = (
+				5716D800230211E1006AEE7C /* PlayListCoordinator.swift */,
 				5716D7D823020A3D006AEE7C /* Configurator */,
 				5716D7D023020A3D006AEE7C /* Presenter */,
 				5716D7D423020A3D006AEE7C /* View */,
@@ -518,6 +534,8 @@
 		5716D7DA23020A3D006AEE7C /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				5716D7FC23021045006AEE7C /* ProfileCoordinator.swift */,
+				5716D7FE230210FD006AEE7C /* ProfileCoordinatorOutput.swift */,
 				5716D7DB23020A3D006AEE7C /* Profile */,
 			);
 			path = Profile;
@@ -712,8 +730,11 @@
 				5716D7E823020A3D006AEE7C /* PlayListModuleInput.swift in Sources */,
 				5716D7EB23020A3D006AEE7C /* PlayListViewOutput.swift in Sources */,
 				57162F1C2300843800B05851 /* BaseCoordinator.swift in Sources */,
+				5716D7FF230210FD006AEE7C /* ProfileCoordinatorOutput.swift in Sources */,
 				5716D7C3230207D3006AEE7C /* RandomImagesViewOutput.swift in Sources */,
+				5716D7FB23020F72006AEE7C /* UIApplication.swift in Sources */,
 				5716D7B123020157006AEE7C /* MainTabBarModuleOutput.swift in Sources */,
+				5716D7FD23021045006AEE7C /* ProfileCoordinator.swift in Sources */,
 				57162F16230082C000B05851 /* Coordinator.swift in Sources */,
 				57162F282300865400B05851 /* AuthPageViewController.swift in Sources */,
 				5716D7F223020A3D006AEE7C /* ProfileViewController.swift in Sources */,
@@ -725,6 +746,7 @@
 				5716D7EA23020A3D006AEE7C /* PlayListViewController.swift in Sources */,
 				5716D7C82302082B006AEE7C /* RandomImagesModuleInput.swift in Sources */,
 				5716D7B623020261006AEE7C /* MainTabBarModuleConfigurator.swift in Sources */,
+				5716D7F923020F42006AEE7C /* MainRouter.swift in Sources */,
 				5716D7B8230206A9006AEE7C /* MainTabBarCoordinator.swift in Sources */,
 				57162F5D2300A32A00B05851 /* RoundInputFieldView.swift in Sources */,
 				5716D7F023020A3D006AEE7C /* ProfileViewInput.swift in Sources */,
@@ -732,6 +754,7 @@
 				57162F5823009A8100B05851 /* Assets.swift in Sources */,
 				5716D7A82301FD38006AEE7C /* MainTabBarViewController.swift in Sources */,
 				57162F2A2300867700B05851 /* AuthPageViewInput.swift in Sources */,
+				5716D7F523020D87006AEE7C /* RandomImagesCoordinator.swift in Sources */,
 				57162F182300832B00B05851 /* Router.swift in Sources */,
 				5716D7E723020A3D006AEE7C /* PlayListPresenter.swift in Sources */,
 				57162F50230099A200B05851 /* Color.swift in Sources */,
@@ -752,6 +775,7 @@
 				5716D7AC2301FD8D006AEE7C /* MainTab.swift in Sources */,
 				57162EFF2300768C00B05851 /* AppDelegate.swift in Sources */,
 				57162F32230086B400B05851 /* AuthPageModuleOutput.swift in Sources */,
+				5716D801230211E1006AEE7C /* PlayListCoordinator.swift in Sources */,
 				5716D7C1230207B2006AEE7C /* RandomImagesViewInput.swift in Sources */,
 				57162F6B2300D3A900B05851 /* Regex.swift in Sources */,
 				5716D7C62302080B006AEE7C /* RandomImagesModuleOutput.swift in Sources */,

@@ -20,4 +20,7 @@ protocol Router {
 
     func dismissModule()
     func dismissModule(animated: Bool, completion: (() -> Void)?)
+
+    func setNavigationControllerRootModule(_ module: Presentable?, animated: Bool, hideBar: Bool)
+    func setRootModule(_ module: Presentable?)
 }

@@ -22,10 +22,6 @@ final class MainTabBarViewController: UITabBarController {
 
     var output: MainTabBarViewOutput?
 
-    // MARK: - Private Properties
-
-    private var isSelectableStackEmpty: Bool = true
-
     // MARK: - UIViewController
 
     override func viewDidLoad() {
@@ -46,23 +42,13 @@ extension MainTabBarViewController: MainTabBarViewInput {
 
 extension MainTabBarViewController: UITabBarControllerDelegate {
 
-    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        let navigationController = viewController as? UINavigationController
-        var isStackEmpty = true
-        if let isEmpty = navigationController?.viewControllers.isEmpty, !isEmpty {
-            isStackEmpty = navigationController?.visibleViewController == navigationController?.viewControllers[0]
-        }
-        isSelectableStackEmpty = isStackEmpty
-        return true
-    }
-
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         guard let tab = MainTab(rawValue: viewController.tabBarItem.tag) else {
             return
         }
         let navigationController = viewController as? UINavigationController
         let isInitial = navigationController?.viewControllers.isEmpty ?? true
-        output?.selectTab(with: tab, isInitial: isInitial, isStackEmpty: isSelectableStackEmpty)
+        output?.selectTab(with: tab, isInitial: isInitial)
     }
 
 }

@@ -13,6 +13,5 @@ protocol MainTabBarViewOutput {
     ///
     /// - Parameter tab: which tab user did select
     /// - Parameter isInitial: flag, indicating that controller was created before
-    /// - Parameter isStackEmpty: flag, indicating that controllers stack is empty and have only root controller
-    func selectTab(with tab: MainTab, isInitial: Bool, isStackEmpty: Bool)
+    func selectTab(with tab: MainTab, isInitial: Bool)
 }
