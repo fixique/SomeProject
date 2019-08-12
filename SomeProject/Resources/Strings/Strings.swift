@@ -68,6 +68,17 @@ enum L10n {
       }
     }
   }
+
+  enum Profile {
+
+    enum Buttons {
+
+      enum Logout {
+        /// Logout
+        static let title = L10n.tr("Localizable", "Profile.Buttons.Logout.title")
+      }
+    }
+  }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length nesting type_body_length type_name
 

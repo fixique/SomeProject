@@ -30,4 +30,9 @@ extension ProfilePresenter: ProfileViewOutput {
         view?.setupInitialState()
     }
 
+    func logout() {
+        UserCredentialsManager.shared.logout()
+        onLogout?()
+    }
+
 }

@@ -72,6 +72,7 @@
 		5716D801230211E1006AEE7C /* PlayListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D800230211E1006AEE7C /* PlayListCoordinator.swift */; };
 		5716D80323021545006AEE7C /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D80223021545006AEE7C /* ApplicationCoordinator.swift */; };
 		5716D8052302171D006AEE7C /* AuthCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D8042302171D006AEE7C /* AuthCoordinatorOutput.swift */; };
+		5716D80823021ADC006AEE7C /* UserCredentialsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D80723021ADC006AEE7C /* UserCredentialsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +144,7 @@
 		5716D800230211E1006AEE7C /* PlayListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListCoordinator.swift; sourceTree = "<group>"; };
 		5716D80223021545006AEE7C /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		5716D8042302171D006AEE7C /* AuthCoordinatorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinatorOutput.swift; sourceTree = "<group>"; };
+		5716D80723021ADC006AEE7C /* UserCredentialsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentialsManager.swift; sourceTree = "<group>"; };
 		A0AE20861AC70ED27B6D01A9 /* Pods-SomeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.debug.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A82B2FF762F035AD669D0EEE /* Pods-SomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.release.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -233,6 +235,7 @@
 		57162F132300829300B05851 /* BaseClasses */ = {
 			isa = PBXGroup;
 			children = (
+				5716D80623021AC8006AEE7C /* UserCredentialsManager */,
 				5716D7A12301F27C006AEE7C /* KeychainService */,
 				57162F5E2300A51000B05851 /* TextFieldValidator */,
 				57162F1B2300843800B05851 /* BaseCoordinator.swift */,
@@ -585,6 +588,14 @@
 			path = Configurator;
 			sourceTree = "<group>";
 		};
+		5716D80623021AC8006AEE7C /* UserCredentialsManager */ = {
+			isa = PBXGroup;
+			children = (
+				5716D80723021ADC006AEE7C /* UserCredentialsManager.swift */,
+			);
+			path = UserCredentialsManager;
+			sourceTree = "<group>";
+		};
 		E9E26F996D488C4A4F312D88 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,6 +791,7 @@
 				5716D7EC23020A3D006AEE7C /* PlayLIstModuleConfigurator.swift in Sources */,
 				57162F30230086A300B05851 /* AuthPageModuleInput.swift in Sources */,
 				5716D7EF23020A3D006AEE7C /* ProfileModuleOutput.swift in Sources */,
+				5716D80823021ADC006AEE7C /* UserCredentialsManager.swift in Sources */,
 				5716D7AC2301FD8D006AEE7C /* MainTab.swift in Sources */,
 				57162EFF2300768C00B05851 /* AppDelegate.swift in Sources */,
 				57162F32230086B400B05851 /* AuthPageModuleOutput.swift in Sources */,

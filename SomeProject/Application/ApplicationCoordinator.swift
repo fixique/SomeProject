@@ -33,7 +33,8 @@ final class ApplicationCoordinator: BaseCoordinator {
     // MARK: - Private Properties
 
     private var instructor: LaunchInstructor {
-        return Bool.random() ? .main : .auth
+        let state = UserCredentialsManager.shared.state
+        return LaunchInstructor.configure(userState: state)
     }
 
     // MARK: - Coordinator

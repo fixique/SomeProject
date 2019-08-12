@@ -11,4 +11,6 @@ import Foundation
 protocol ProfileViewOutput {
     /// Notify presenter that view is ready
     func viewLoaded()
+    /// Notify presenter that view is ready for logou action
+    func logout()
 }

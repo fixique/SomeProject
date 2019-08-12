@@ -132,7 +132,6 @@ private extension AuthPageViewController {
 
     func configureLoginButton() {
         scrollView.addSubview(loginButton)
-        loginButton.mainPrurpleStyle()
         loginButton.setTitle(L10n.Authpage.Buttons.Login.text, for: .normal)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)

@@ -29,6 +29,7 @@ extension RandomImagesViewController: RandomImagesViewInput {
 
     func setupInitialState() {
         configureBackground()
+        print("\(UserCredentialsManager.shared.getEmail() ?? "Email empty")")
     }
 
 }

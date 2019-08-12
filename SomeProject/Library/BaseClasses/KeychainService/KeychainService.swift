@@ -53,7 +53,19 @@ final class KeychainService {
         }
     }
 
-    // MARK: - Private Methods
+    func removeEmail() throws {
+        do {
+            try removeValue(forKey: Keys.email)
+        } catch let error {
+            throw error
+        }
+    }
+
+}
+
+// MARK: - Private Methods
+
+private extension KeychainService {
 
     private func save(data: String, forKey key: String) throws {
         guard let encodedData = data.data(using: .utf8, allowLossyConversion: false) else {
@@ -107,6 +119,15 @@ final class KeychainService {
         case errSecItemNotFound:
             return nil
         default:
+            throw KeychainServiceError.unhandledError
+        }
+    }
+
+    private func removeValue(forKey key: String) throws {
+        let query = keychainQuery(withKey: key)
+
+        let status = SecItemDelete(query as CFDictionary)
+        guard status == errSecSuccess || status == errSecItemNotFound else {
             throw KeychainServiceError.unhandledError
         }
     }
