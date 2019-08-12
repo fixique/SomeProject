@@ -11,10 +11,19 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // MARK: - Public Properties
+
     var window: UIWindow?
+
+    // MARK: - Private Properties
+
+    private lazy var applicationCoordinator: Coordinator = self.makeCoordinator()
+
+    // MARK: - ApplicationService
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         initializeRootView()
+        applicationCoordinator.start()
         let keychain = KeychainService()
         do {
             try keychain.saveEmail("ubeto96@gmail.com")
@@ -40,9 +49,12 @@ private extension AppDelegate {
 
     func initializeRootView() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let module = AuthPageModuleConfigurator().configure()
-        window?.rootViewController = module.0
+        window?.rootViewController = UIViewController()
         window?.makeKeyAndVisible()
+    }
+
+    private func makeCoordinator() -> Coordinator {
+        return ApplicationCoordinator()
     }
 
 }

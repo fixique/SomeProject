@@ -28,6 +28,17 @@ final class RandomImagesViewController: UIViewController {
 extension RandomImagesViewController: RandomImagesViewInput {
 
     func setupInitialState() {
+        configureBackground()
+    }
+
+}
+
+// MARK: - Configuration
+
+private extension RandomImagesViewController {
+
+    func configureBackground() {
+        view.backgroundColor = Color.Main.background
     }
 
 }

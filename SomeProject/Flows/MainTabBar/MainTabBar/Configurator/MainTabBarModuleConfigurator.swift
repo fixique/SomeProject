@@ -10,7 +10,6 @@ import UIKit
 
 final class MainTabBarModuleConfigurator {
 
-
     func configure() -> (UIViewController, MainTabBarModuleOutput) {
         let view = MainTabBarViewController()
         let presenter = MainTabBarPresenter()

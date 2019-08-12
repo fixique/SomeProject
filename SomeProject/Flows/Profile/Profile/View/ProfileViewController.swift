@@ -28,6 +28,17 @@ final class ProfileViewController: UIViewController {
 extension ProfileViewController: ProfileViewInput {
 
     func setupInitialState() {
+        configureBackground()
+    }
+
+}
+
+// MARK: - Configuration
+
+private extension ProfileViewController {
+
+    func configureBackground() {
+        view.backgroundColor = Color.Main.background
     }
 
 }

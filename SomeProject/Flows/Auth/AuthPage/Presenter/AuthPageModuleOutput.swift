@@ -9,4 +9,5 @@
 import Foundation
 
 protocol AuthPageModuleOutput: class {
+    var finishAuth: EmptyClosure? { get set }
 }

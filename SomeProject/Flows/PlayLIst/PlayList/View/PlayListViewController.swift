@@ -28,6 +28,17 @@ final class PlayListViewController: UIViewController {
 extension PlayListViewController: PlayListViewInput {
 
     func setupInitialState() {
+        configureBackground()
+    }
+
+}
+
+// MARK: - Configuration
+
+private extension PlayListViewController {
+
+    func configureBackground() {
+        view.backgroundColor = Color.Main.background
     }
 
 }

@@ -70,6 +70,8 @@
 		5716D7FD23021045006AEE7C /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D7FC23021045006AEE7C /* ProfileCoordinator.swift */; };
 		5716D7FF230210FD006AEE7C /* ProfileCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D7FE230210FD006AEE7C /* ProfileCoordinatorOutput.swift */; };
 		5716D801230211E1006AEE7C /* PlayListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D800230211E1006AEE7C /* PlayListCoordinator.swift */; };
+		5716D80323021545006AEE7C /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D80223021545006AEE7C /* ApplicationCoordinator.swift */; };
+		5716D8052302171D006AEE7C /* AuthCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D8042302171D006AEE7C /* AuthCoordinatorOutput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +141,8 @@
 		5716D7FC23021045006AEE7C /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		5716D7FE230210FD006AEE7C /* ProfileCoordinatorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinatorOutput.swift; sourceTree = "<group>"; };
 		5716D800230211E1006AEE7C /* PlayListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListCoordinator.swift; sourceTree = "<group>"; };
+		5716D80223021545006AEE7C /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		5716D8042302171D006AEE7C /* AuthCoordinatorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinatorOutput.swift; sourceTree = "<group>"; };
 		A0AE20861AC70ED27B6D01A9 /* Pods-SomeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.debug.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A82B2FF762F035AD669D0EEE /* Pods-SomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.release.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,6 +204,7 @@
 				57162EFE2300768C00B05851 /* AppDelegate.swift */,
 				57162F072300768E00B05851 /* LaunchScreen.storyboard */,
 				57162F0A2300768E00B05851 /* Info.plist */,
+				5716D80223021545006AEE7C /* ApplicationCoordinator.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				57162F1F2300857E00B05851 /* AuthCoordinator.swift */,
+				5716D8042302171D006AEE7C /* AuthCoordinatorOutput.swift */,
 				57162F21230085D800B05851 /* AuthPage */,
 			);
 			path = Auth;
@@ -723,6 +729,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5716D8052302171D006AEE7C /* AuthCoordinatorOutput.swift in Sources */,
 				57162F692300BA7700B05851 /* UIImage.swift in Sources */,
 				57162F2C2300868300B05851 /* AuthPageViewOutput.swift in Sources */,
 				5716D7F123020A3D006AEE7C /* ProfileViewOutput.swift in Sources */,
@@ -758,6 +765,7 @@
 				57162F182300832B00B05851 /* Router.swift in Sources */,
 				5716D7E723020A3D006AEE7C /* PlayListPresenter.swift in Sources */,
 				57162F50230099A200B05851 /* Color.swift in Sources */,
+				5716D80323021545006AEE7C /* ApplicationCoordinator.swift in Sources */,
 				57162F672300B8F700B05851 /* UIButton.swift in Sources */,
 				5716D7E623020A3D006AEE7C /* PlayListModuleOutput.swift in Sources */,
 				57162F2E2300869300B05851 /* AuthPagePresenter.swift in Sources */,

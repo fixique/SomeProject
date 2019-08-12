@@ -8,6 +8,10 @@
 
 final class AuthPagePresenter: AuthPageModuleOutput {
 
+    // MARK: - AuthPageModuleOutput
+
+    var finishAuth: EmptyClosure?
+
     // MARK: - Properties
 
     weak var view: AuthPageViewInput?
@@ -27,7 +31,7 @@ extension AuthPagePresenter: AuthPageViewOutput {
     }
 
     func loginAction() {
-        print("Login action")
+        finishAuth?()
     }
 
 }
