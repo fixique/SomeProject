@@ -38,6 +38,34 @@ enum L10n {
       }
     }
   }
+
+  enum Keychainserviceerror {
+    /// Data to String conversion error
+    static let dataToString = L10n.tr("Localizable", "KeychainServiceError.dataToString")
+    /// String to Data conversion error
+    static let stringToData = L10n.tr("Localizable", "KeychainServiceError.stringToData")
+  }
+
+  enum Maintabbar {
+
+    enum Tabs {
+
+      enum Playlist {
+        /// Play List
+        static let title = L10n.tr("Localizable", "MainTabBar.Tabs.PlayList.title")
+      }
+
+      enum Profile {
+        /// Profile
+        static let title = L10n.tr("Localizable", "MainTabBar.Tabs.Profile.title")
+      }
+
+      enum Randomimages {
+        /// Random Images
+        static let title = L10n.tr("Localizable", "MainTabBar.Tabs.RandomImages.title")
+      }
+    }
+  }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length nesting type_body_length type_name
 

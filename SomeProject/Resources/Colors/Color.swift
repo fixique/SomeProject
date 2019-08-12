@@ -14,14 +14,23 @@ enum Color {
         static let lightGray = UIColor(hexString: "E8E8E8")
         static let strokeGray = UIColor(hexString: "DCDCDC")
         static let textGray = UIColor(hexString: "B9BCC5")
+        static let itemGray = UIColor(hexString: "5C6979")
         static let purple = UIColor(hexString: "7C42FB")
         static let purpleBold = UIColor(hexString: "631DFA")
         static let red = UIColor(hexString: "D82424")
         static let white = UIColor(hexString: "FFFFFF")
+        static let black = UIColor(hexString: "000000")
     }
 
     enum Main {
         static let background = Figma.white
+    }
+
+    enum TabBar {
+        static let background = Figma.white
+        static let selectedTabItem = Figma.black
+        static let tabItem = Figma.itemGray
+        static let stroke = Figma.lightGray
     }
 
     enum InputFields {

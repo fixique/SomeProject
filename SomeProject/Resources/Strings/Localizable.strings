@@ -6,8 +6,21 @@
   Copyright © 2019 Fixique. All rights reserved.
 */
 
+// MARK: - KeychainServiceError
+
+"KeychainServiceError.stringToData" = "String to Data conversion error";
+"KeychainServiceError.dataToString" = "Data to String conversion error";
+
+// MARK: - AuthPage
+
 "AuthPage.InputField.Errors.empty" = "Field cannot be empty";
 "AuthPage.InputField.Errors.incorrect" = "Invalid format";
 "AuthPage.InputField.Email.placeholder" = "Email";
 "AuthPage.InputField.Password.placeholder" = "Password";
 "AuthPage.Buttons.Login.text" = "Login";
+
+// MARK: - MainTabBar
+
+"MainTabBar.Tabs.RandomImages.title" = "Random Images";
+"MainTabBar.Tabs.PlayList.title" = "Play List";
+"MainTabBar.Tabs.Profile.title" = "Profile";

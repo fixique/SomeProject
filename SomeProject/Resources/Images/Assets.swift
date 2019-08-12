@@ -47,12 +47,20 @@ enum Asset {
   enum AuthPage {
     static let logo = ImageAsset(name: "logo")
   }
+  enum MainTabBar {
+    static let feed = ImageAsset(name: "Feed")
+    static let image = ImageAsset(name: "Image")
+    static let profile = ImageAsset(name: "Profile")
+  }
 
   // swiftlint:disable trailing_comma
   static let allColors: [ColorAsset] = [
   ]
   static let allImages: [ImageAsset] = [
     AuthPage.logo,
+    MainTabBar.feed,
+    MainTabBar.image,
+    MainTabBar.profile,
   ]
   // swiftlint:enable trailing_comma
   @available(*, deprecated, renamed: "allImages")
