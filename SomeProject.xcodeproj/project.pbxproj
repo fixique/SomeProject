@@ -33,6 +33,7 @@
 		57162F672300B8F700B05851 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F662300B8F700B05851 /* UIButton.swift */; };
 		57162F692300BA7700B05851 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F682300BA7700B05851 /* UIImage.swift */; };
 		57162F6B2300D3A900B05851 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57162F6A2300D3A900B05851 /* Regex.swift */; };
+		5716D7A32301F287006AEE7C /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D7A22301F287006AEE7C /* KeychainService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		57162F662300B8F700B05851 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		57162F682300BA7700B05851 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		57162F6A2300D3A900B05851 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		5716D7A22301F287006AEE7C /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		A0AE20861AC70ED27B6D01A9 /* Pods-SomeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.debug.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A82B2FF762F035AD669D0EEE /* Pods-SomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.release.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +156,7 @@
 		57162F132300829300B05851 /* BaseClasses */ = {
 			isa = PBXGroup;
 			children = (
+				5716D7A12301F27C006AEE7C /* KeychainService */,
 				57162F5E2300A51000B05851 /* TextFieldValidator */,
 				57162F1B2300843800B05851 /* BaseCoordinator.swift */,
 			);
@@ -298,6 +301,14 @@
 				57162F662300B8F700B05851 /* UIButton.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		5716D7A12301F27C006AEE7C /* KeychainService */ = {
+			isa = PBXGroup;
+			children = (
+				5716D7A22301F287006AEE7C /* KeychainService.swift */,
+			);
+			path = KeychainService;
 			sourceTree = "<group>";
 		};
 		E9E26F996D488C4A4F312D88 /* Pods */ = {
@@ -451,6 +462,7 @@
 				57162F282300865400B05851 /* AuthPageViewController.swift in Sources */,
 				57162F1A2300834B00B05851 /* Presentable.swift in Sources */,
 				57162F5D2300A32A00B05851 /* RoundInputFieldView.swift in Sources */,
+				5716D7A32301F287006AEE7C /* KeychainService.swift in Sources */,
 				57162F5823009A8100B05851 /* Assets.swift in Sources */,
 				57162F2A2300867700B05851 /* AuthPageViewInput.swift in Sources */,
 				57162F182300832B00B05851 /* Router.swift in Sources */,
