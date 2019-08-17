@@ -69,6 +69,14 @@ enum L10n {
     }
   }
 
+  enum Playlist {
+
+    enum Navbar {
+      /// Play List
+      static let title = L10n.tr("Localizable", "PlayList.Navbar.title")
+    }
+  }
+
   enum Profile {
 
     enum Buttons {
@@ -77,6 +85,19 @@ enum L10n {
         /// Logout
         static let title = L10n.tr("Localizable", "Profile.Buttons.Logout.title")
       }
+    }
+
+    enum Navbar {
+      /// Profile
+      static let title = L10n.tr("Localizable", "Profile.Navbar.title")
+    }
+  }
+
+  enum Randomimages {
+
+    enum Navbar {
+      /// Random Images
+      static let title = L10n.tr("Localizable", "RandomImages.Navbar.title")
     }
   }
 }

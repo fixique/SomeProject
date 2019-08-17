@@ -51,4 +51,12 @@ enum Color {
             static let text = Figma.white
         }
     }
+
+    enum NavigationBarStyle {
+        enum White {
+            static let background = Figma.white
+            static let text = Figma.black
+        }
+    }
+
 }

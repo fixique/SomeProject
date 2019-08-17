@@ -43,6 +43,7 @@ extension ProfileViewController: ProfileViewInput {
 
     func setupInitialState() {
         configureBackground()
+        configureNavigationBar()
         configureLogoutButton()
     }
 
@@ -54,6 +55,11 @@ private extension ProfileViewController {
 
     func configureBackground() {
         view.backgroundColor = Color.Main.background
+    }
+
+    func configureNavigationBar() {
+        navigationController?.applyWhiteNavigationBarStyle()
+        title = L10n.Profile.Navbar.title
     }
 
     func configureLogoutButton() {

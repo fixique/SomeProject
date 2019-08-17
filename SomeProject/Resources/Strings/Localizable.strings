@@ -26,6 +26,15 @@
 "MainTabBar.Tabs.PlayList.title" = "Play List";
 "MainTabBar.Tabs.Profile.title" = "Profile";
 
+// MARK: - Random Images
+
+"RandomImages.Navbar.title" = "Random Images";
+
+// MARK: - Play List
+
+"PlayList.Navbar.title" = "Play List";
+
 // MARK: - Profile
 
+"Profile.Navbar.title" = "Profile";
 "Profile.Buttons.Logout.title" = "Logout";

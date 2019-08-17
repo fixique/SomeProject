@@ -29,6 +29,7 @@ extension RandomImagesViewController: RandomImagesViewInput {
 
     func setupInitialState() {
         configureBackground()
+        configureNavigationBar()
         print("\(UserCredentialsManager.shared.getEmail() ?? "Email empty")")
     }
 
@@ -40,6 +41,11 @@ private extension RandomImagesViewController {
 
     func configureBackground() {
         view.backgroundColor = Color.Main.background
+    }
+
+    func configureNavigationBar() {
+        navigationController?.applyWhiteNavigationBarStyle()
+        title = L10n.Randomimages.Navbar.title
     }
 
 }

@@ -29,6 +29,7 @@ extension PlayListViewController: PlayListViewInput {
 
     func setupInitialState() {
         configureBackground()
+        configureNavigationBar()
     }
 
 }
@@ -39,6 +40,11 @@ private extension PlayListViewController {
 
     func configureBackground() {
         view.backgroundColor = Color.Main.background
+    }
+
+    func configureNavigationBar() {
+        navigationController?.applyWhiteNavigationBarStyle()
+        title = L10n.Playlist.Navbar.title
     }
 
 }
