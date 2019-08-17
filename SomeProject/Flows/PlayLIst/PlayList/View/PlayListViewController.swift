@@ -60,6 +60,7 @@ private extension PlayListViewController {
     func configureTableView() {
         adapter = PlayListAdapter(with: tableView)
         tableView.dataSource = adapter
+        tableView.delegate = adapter
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
 
@@ -69,6 +70,10 @@ private extension PlayListViewController {
         let bottomConstraint = tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
 
         NSLayoutConstraint.activate([topConstraint, leftConstraint, rightConstraint, bottomConstraint])
+
+        adapter?.didSelectSong = { [weak self] song in
+            self?.output?.songSelect(song: song)
+        }
     }
 
 }

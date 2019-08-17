@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias SelectSongClosure = (SongViewModel) -> Void
+
 final class PlayListAdapter: NSObject {
 
     // MARK: - Constants
@@ -15,6 +17,10 @@ final class PlayListAdapter: NSObject {
     private enum Constants {
         static let estimatedRowHeight: CGFloat = 112.0
     }
+
+    // MARK: – Properties
+
+    var didSelectSong: SelectSongClosure?
 
     // MARK: - Private Properties
 
@@ -54,6 +60,16 @@ extension PlayListAdapter: UITableViewDataSource {
         }
         songCell.configure(with: models[indexPath.row])
         return songCell
+    }
+
+}
+
+// MARK: - UITableViewDelegate
+
+extension PlayListAdapter: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        didSelectSong?(models[indexPath.row])
     }
 
 }

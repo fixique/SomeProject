@@ -8,6 +8,10 @@
 
 final class PlayListPresenter: PlayListModuleOutput {
 
+    // MARK: - PlayListModuleOutput
+
+    var onSongSelect: SelectSongClosure?
+
     // MARK: - Properties
 
     weak var view: PlayListViewInput?
@@ -29,6 +33,10 @@ extension PlayListPresenter: PlayListViewOutput {
         let items = PlayListService().getPlayListItems()?.items ?? []
         let viewModels = items.compactMap({ SongViewModel(with: $0) })
         view?.configure(with: viewModels)
+    }
+
+    func songSelect(song: SongViewModel) {
+        onSongSelect?(song)
     }
 
 }

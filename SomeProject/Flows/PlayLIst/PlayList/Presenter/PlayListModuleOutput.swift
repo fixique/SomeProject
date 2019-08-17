@@ -9,4 +9,5 @@
 import Foundation
 
 protocol PlayListModuleOutput: class {
+    var onSongSelect: SelectSongClosure? { get set }
 }

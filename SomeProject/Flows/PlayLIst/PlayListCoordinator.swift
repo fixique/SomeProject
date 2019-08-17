@@ -33,8 +33,18 @@ final class PlayListCoordinator: BaseCoordinator {
 private extension PlayListCoordinator {
 
     func showPlayList() {
-        let (view, _) = PlayListModuleConfigurator().configure()
+        let (view, output) = PlayListModuleConfigurator().configure()
+
+        output.onSongSelect = { [weak self] song in
+            self?.showSongDetail(with: song)
+        }
+
         router.setNavigationControllerRootModule(view, animated: false, hideBar: false)
+    }
+
+    func showSongDetail(with song: SongViewModel) {
+        let (view, _) = SongDetailModuleConfigurator().configure(with: song)
+        router.push(view, animated: true)
     }
 
 }

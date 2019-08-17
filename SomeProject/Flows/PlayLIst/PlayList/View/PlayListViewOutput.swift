@@ -11,4 +11,6 @@ import Foundation
 protocol PlayListViewOutput {
     /// Notify presenter that view is ready
     func viewLoaded()
+    /// Notify presenter that view select song
+    func songSelect(song: SongViewModel)
 }
