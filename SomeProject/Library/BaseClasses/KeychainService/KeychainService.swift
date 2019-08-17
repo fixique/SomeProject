@@ -28,46 +28,9 @@ enum KeychainServiceError: Error {
 
 final class KeychainService {
 
-    // MARK: - Constants
-
-    private enum Keys {
-        static let email = "userEmailKey"
-    }
-
     // MARK: - Internal Methods
 
-    func saveEmail(_ data: String) throws {
-        do {
-            try save(data: data, forKey: Keys.email)
-        } catch let error {
-            throw error
-        }
-    }
-
-    func loadEmail() throws -> String? {
-        do {
-            let email = try load(forKey: Keys.email)
-            return email
-        } catch let error {
-            throw error
-        }
-    }
-
-    func removeEmail() throws {
-        do {
-            try removeValue(forKey: Keys.email)
-        } catch let error {
-            throw error
-        }
-    }
-
-}
-
-// MARK: - Private Methods
-
-private extension KeychainService {
-
-    private func save(data: String, forKey key: String) throws {
+    func save(data: String, forKey key: String) throws {
         guard let encodedData = data.data(using: .utf8, allowLossyConversion: false) else {
             throw KeychainServiceError.stringToDataConversionError
         }
@@ -96,7 +59,7 @@ private extension KeychainService {
 
     }
 
-    private func load(forKey key: String) throws -> String? {
+    func load(forKey key: String) throws -> String? {
         let query = keychainQuery(withKey: key)
         query.setValue(kCFBooleanTrue, forKey: kSecReturnData as String)
         query.setValue(kCFBooleanTrue, forKey: kSecReturnAttributes as String)
@@ -123,7 +86,7 @@ private extension KeychainService {
         }
     }
 
-    private func removeValue(forKey key: String) throws {
+    func removeValue(forKey key: String) throws {
         let query = keychainQuery(withKey: key)
 
         let status = SecItemDelete(query as CFDictionary)
@@ -131,6 +94,12 @@ private extension KeychainService {
             throw KeychainServiceError.unhandledError
         }
     }
+
+}
+
+// MARK: - Private Methods
+
+private extension KeychainService {
 
     private func keychainQuery(withKey key: String) -> NSMutableDictionary {
         let result = NSMutableDictionary()

@@ -10,6 +10,12 @@ import Foundation
 
 final class UserCredentialsManager {
 
+    // MARK: - Constants
+
+    private enum Keys {
+        static let email = "userEmailKey"
+    }
+
     // MARK: - Properties
 
     static let shared = UserCredentialsManager()
@@ -29,7 +35,7 @@ final class UserCredentialsManager {
 
     func saveEmail(_ email: String) {
         do {
-            try keychain.saveEmail(email)
+            try keychain.save(data: email, forKey: Keys.email)
         } catch let error {
             showError(error: error)
         }
@@ -37,7 +43,7 @@ final class UserCredentialsManager {
 
     func getEmail() -> String? {
         do {
-            let email = try keychain.loadEmail()
+            let email = try keychain.load(forKey: Keys.email)
             return email
         } catch let error {
             showError(error: error)
@@ -47,7 +53,7 @@ final class UserCredentialsManager {
 
     func logout() {
         do {
-            try keychain.removeEmail()
+            try keychain.removeValue(forKey: Keys.email)
         } catch let error {
             showError(error: error)
         }
