@@ -51,6 +51,10 @@ extension RandomImagesViewController: RandomImagesViewInput {
         configureUpdateButton()
     }
 
+    func setupRandomIamge(imagePath: String?) {
+        randomImageView.downloadImage(urlPath: imagePath, placeholder: UIImage(asset: Asset.ImagePlaceholders.imagePlaceholder))
+    }
+
 }
 
 // MARK: - Configuration
@@ -69,7 +73,7 @@ private extension RandomImagesViewController {
     func configureImageView() {
         view.addSubview(randomImageView)
         randomImageView.translatesAutoresizingMaskIntoConstraints = false
-        randomImageView.backgroundColor = Color.InputFields.RoundInputField.error
+        randomImageView.contentMode = .scaleAspectFit
 
         let imageViewTopConstraint = randomImageView.topAnchor.constraint(equalTo: view.topAnchor)
         let imageViewLeftConstraint = randomImageView.leftAnchor.constraint(equalTo: view.leftAnchor)
@@ -113,7 +117,7 @@ private extension RandomImagesViewController {
 
     @objc
     func updateButtonPressed() {
-        print("didPressed")
+        output?.update()
     }
 
 }

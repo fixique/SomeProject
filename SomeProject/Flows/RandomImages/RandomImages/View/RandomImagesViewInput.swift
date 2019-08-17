@@ -11,4 +11,6 @@ import Foundation
 protocol RandomImagesViewInput: class {
     /// Method for setup initial state of view
     func setupInitialState()
+    /// Method for setup random image
+    func setupRandomIamge(imagePath: String?)
 }

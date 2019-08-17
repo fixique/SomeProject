@@ -74,6 +74,7 @@
 		5716D8052302171D006AEE7C /* AuthCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D8042302171D006AEE7C /* AuthCoordinatorOutput.swift */; };
 		5716D80823021ADC006AEE7C /* UserCredentialsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716D80723021ADC006AEE7C /* UserCredentialsManager.swift */; };
 		5778EA4A23081646000E893F /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA4923081646000E893F /* UINavigationController.swift */; };
+		5778EA4E23082214000E893F /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA4D23082214000E893F /* UIImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +148,7 @@
 		5716D8042302171D006AEE7C /* AuthCoordinatorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinatorOutput.swift; sourceTree = "<group>"; };
 		5716D80723021ADC006AEE7C /* UserCredentialsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentialsManager.swift; sourceTree = "<group>"; };
 		5778EA4923081646000E893F /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		5778EA4D23082214000E893F /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		A0AE20861AC70ED27B6D01A9 /* Pods-SomeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.debug.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A82B2FF762F035AD669D0EEE /* Pods-SomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.release.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -373,6 +375,7 @@
 				57162F682300BA7700B05851 /* UIImage.swift */,
 				5716D7FA23020F72006AEE7C /* UIApplication.swift */,
 				5778EA4923081646000E893F /* UINavigationController.swift */,
+				5778EA4D23082214000E893F /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -751,6 +754,7 @@
 				5716D7E823020A3D006AEE7C /* PlayListModuleInput.swift in Sources */,
 				5778EA4A23081646000E893F /* UINavigationController.swift in Sources */,
 				5716D7EB23020A3D006AEE7C /* PlayListViewOutput.swift in Sources */,
+				5778EA4E23082214000E893F /* UIImageView.swift in Sources */,
 				57162F1C2300843800B05851 /* BaseCoordinator.swift in Sources */,
 				5716D7FF230210FD006AEE7C /* ProfileCoordinatorOutput.swift in Sources */,
 				5716D7C3230207D3006AEE7C /* RandomImagesViewOutput.swift in Sources */,

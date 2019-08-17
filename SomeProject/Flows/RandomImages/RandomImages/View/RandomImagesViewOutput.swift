@@ -11,4 +11,6 @@ import Foundation
 protocol RandomImagesViewOutput {
     /// Notify presenter that view is ready
     func viewLoaded()
+    /// Notify presenter that view is ready to get new image
+    func update()
 }

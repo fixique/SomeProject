@@ -47,6 +47,9 @@ enum Asset {
   enum AuthPage {
     static let logo = ImageAsset(name: "logo")
   }
+  enum ImagePlaceholders {
+    static let imagePlaceholder = ImageAsset(name: "imagePlaceholder")
+  }
   enum MainTabBar {
     static let feed = ImageAsset(name: "Feed")
     static let image = ImageAsset(name: "Image")
@@ -58,6 +61,7 @@ enum Asset {
   ]
   static let allImages: [ImageAsset] = [
     AuthPage.logo,
+    ImagePlaceholders.imagePlaceholder,
     MainTabBar.feed,
     MainTabBar.image,
     MainTabBar.profile,
