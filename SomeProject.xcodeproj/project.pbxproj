@@ -80,6 +80,8 @@
 		5778EA5A23083853000E893F /* ProfileAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA5923083853000E893F /* ProfileAdapter.swift */; };
 		5778EA5C230838A4000E893F /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA5B230838A4000E893F /* UITableView.swift */; };
 		5778EA5F23083F7B000E893F /* ProfileLogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA5E23083F7B000E893F /* ProfileLogoutCell.swift */; };
+		5778EA63230844CC000E893F /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA62230844CC000E893F /* SongCell.swift */; };
+		5778EA6723084671000E893F /* SongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA6623084671000E893F /* SongViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,6 +161,8 @@
 		5778EA5923083853000E893F /* ProfileAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdapter.swift; sourceTree = "<group>"; };
 		5778EA5B230838A4000E893F /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		5778EA5E23083F7B000E893F /* ProfileLogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLogoutCell.swift; sourceTree = "<group>"; };
+		5778EA62230844CC000E893F /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
+		5778EA6623084671000E893F /* SongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewModel.swift; sourceTree = "<group>"; };
 		A0AE20861AC70ED27B6D01A9 /* Pods-SomeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.debug.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A82B2FF762F035AD669D0EEE /* Pods-SomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.release.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -532,6 +536,7 @@
 		5716D7D023020A3D006AEE7C /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				5778EA652308465F000E893F /* Models */,
 				5716D7D223020A3D006AEE7C /* PlayListPresenter.swift */,
 				5716D7D323020A3D006AEE7C /* PlayListModuleInput.swift */,
 				5716D7D123020A3D006AEE7C /* PlayListModuleOutput.swift */,
@@ -542,6 +547,7 @@
 		5716D7D423020A3D006AEE7C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5778EA6023084489000E893F /* Adapter */,
 				5716D7D623020A3D006AEE7C /* PlayListViewController.swift */,
 				5716D7D523020A3D006AEE7C /* PlayListViewInput.swift */,
 				5716D7D723020A3D006AEE7C /* PlayListViewOutput.swift */,
@@ -655,6 +661,38 @@
 				5778EA5E23083F7B000E893F /* ProfileLogoutCell.swift */,
 			);
 			path = ProfileLogoutCell;
+			sourceTree = "<group>";
+		};
+		5778EA6023084489000E893F /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				5778EA612308448D000E893F /* Cells */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		5778EA612308448D000E893F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5778EA64230844CE000E893F /* SongCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5778EA64230844CE000E893F /* SongCell */ = {
+			isa = PBXGroup;
+			children = (
+				5778EA62230844CC000E893F /* SongCell.swift */,
+			);
+			path = SongCell;
+			sourceTree = "<group>";
+		};
+		5778EA652308465F000E893F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5778EA6623084671000E893F /* SongViewModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E9E26F996D488C4A4F312D88 /* Pods */ = {
@@ -839,6 +877,7 @@
 				57162F5823009A8100B05851 /* Assets.swift in Sources */,
 				5716D7A82301FD38006AEE7C /* MainTabBarViewController.swift in Sources */,
 				57162F2A2300867700B05851 /* AuthPageViewInput.swift in Sources */,
+				5778EA63230844CC000E893F /* SongCell.swift in Sources */,
 				5716D7F523020D87006AEE7C /* RandomImagesCoordinator.swift in Sources */,
 				57162F182300832B00B05851 /* Router.swift in Sources */,
 				5716D7E723020A3D006AEE7C /* PlayListPresenter.swift in Sources */,
@@ -846,6 +885,7 @@
 				5716D80323021545006AEE7C /* ApplicationCoordinator.swift in Sources */,
 				57162F672300B8F700B05851 /* UIButton.swift in Sources */,
 				5716D7E623020A3D006AEE7C /* PlayListModuleOutput.swift in Sources */,
+				5778EA6723084671000E893F /* SongViewModel.swift in Sources */,
 				57162F2E2300869300B05851 /* AuthPagePresenter.swift in Sources */,
 				5778EA5C230838A4000E893F /* UITableView.swift in Sources */,
 				5716D7BF23020776006AEE7C /* RandomImagesViewController.swift in Sources */,
