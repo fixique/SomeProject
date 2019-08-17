@@ -29,6 +29,7 @@
 // MARK: - Random Images
 
 "RandomImages.Navbar.title" = "Random Images";
+"RandomImages.Buttons.Update.title" = "Update";
 
 // MARK: - Play List
 

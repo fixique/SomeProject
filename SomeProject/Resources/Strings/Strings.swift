@@ -95,6 +95,14 @@ enum L10n {
 
   enum Randomimages {
 
+    enum Buttons {
+
+      enum Update {
+        /// Update
+        static let title = L10n.tr("Localizable", "RandomImages.Buttons.Update.title")
+      }
+    }
+
     enum Navbar {
       /// Random Images
       static let title = L10n.tr("Localizable", "RandomImages.Navbar.title")
