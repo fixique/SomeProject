@@ -23,6 +23,8 @@ final class ProfileViewController: UIViewController {
     // MARK: - Private Properties
 
     private let logoutButton = UIButton(type: .custom)
+    private let tableView = UITableView()
+    private var adapter: ProfileAdapter?
 
     // MARK: - UIViewController
 
@@ -41,10 +43,11 @@ final class ProfileViewController: UIViewController {
 
 extension ProfileViewController: ProfileViewInput {
 
-    func setupInitialState() {
+    func setupInitialState(with model: ProfileViewModel) {
         configureBackground()
         configureNavigationBar()
-        configureLogoutButton()
+        configureTableView()
+        adapter?.configure(with: model)
     }
 
 }
@@ -60,6 +63,21 @@ private extension ProfileViewController {
     func configureNavigationBar() {
         navigationController?.applyWhiteNavigationBarStyle()
         title = L10n.Profile.Navbar.title
+    }
+
+    func configureTableView() {
+        adapter = ProfileAdapter(with: tableView)
+        tableView.dataSource = adapter
+        tableView.delegate = adapter
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
+
+        let topConstraint = tableView.topAnchor.constraint(equalTo: view.topAnchor)
+        let leftConstraint = tableView.leftAnchor.constraint(equalTo: view.leftAnchor)
+        let rightConstraint = tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
+        let bottomConstraint = tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+
+        NSLayoutConstraint.activate([topConstraint, leftConstraint, rightConstraint, bottomConstraint])
     }
 
     func configureLogoutButton() {

@@ -10,5 +10,5 @@ import Foundation
 
 protocol ProfileViewInput: class {
     /// Method for setup initial state of view
-    func setupInitialState()
+    func setupInitialState(with model: ProfileViewModel)
 }

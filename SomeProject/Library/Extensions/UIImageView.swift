@@ -10,7 +10,7 @@ import UIKit
 
 extension UIImageView {
 
-    func downloadImage(urlPath: String?, placeholder: UIImage?) {
+    func downloadImage(urlPath: String?, placeholder: UIImage? = nil) {
         image = placeholder
         guard let url = URL(string: urlPath ?? "") else {
             return

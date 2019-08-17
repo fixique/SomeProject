@@ -24,6 +24,9 @@ enum Color {
 
     enum Main {
         static let background = Figma.white
+        static let placeholder = Figma.itemGray
+        static let text = Figma.black
+        static let stroke = Figma.strokeGray
     }
 
     enum TabBar {

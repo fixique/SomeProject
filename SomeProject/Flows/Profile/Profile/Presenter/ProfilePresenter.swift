@@ -27,12 +27,24 @@ extension ProfilePresenter: ProfileModuleInput {}
 extension ProfilePresenter: ProfileViewOutput {
 
     func viewLoaded() {
-        view?.setupInitialState()
+        let viewModel = configureProfileViewModel()
+        view?.setupInitialState(with: viewModel)
     }
 
     func logout() {
         UserCredentialsManager.shared.logout()
         onLogout?()
+    }
+
+}
+
+// MARK: - Help Methods
+
+private extension ProfilePresenter {
+
+    func configureProfileViewModel() -> ProfileViewModel {
+        let email = UserCredentialsManager.shared.getEmail()
+        return ProfileViewModel(userEmail: email)
     }
 
 }
