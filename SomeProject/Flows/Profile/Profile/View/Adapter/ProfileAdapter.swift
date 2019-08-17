@@ -10,6 +10,23 @@ import UIKit
 
 final class ProfileAdapter: NSObject {
 
+    // MARK: – Enums
+
+    private enum Cells: Int {
+        case header
+        case logout
+    }
+
+    // MARK: – Constants
+
+    private enum Constants {
+        static let cellsCount: Int = 2
+    }
+
+    // MARK: - Properties
+
+    var logoutClosure: EmptyClosure?
+
     // MARK: - Private Properties
 
     private let tableView: UITableView
@@ -19,6 +36,7 @@ final class ProfileAdapter: NSObject {
 
     init(with tableView: UITableView) {
         tableView.registerCell(ProfileHeaderCell.self)
+        tableView.registerCell(ProfileLogoutCell.self)
         tableView.separatorStyle = .none
         self.tableView = tableView
     }
@@ -37,15 +55,20 @@ final class ProfileAdapter: NSObject {
 extension ProfileAdapter: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return Constants.cellsCount
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let profileHeader = tableView.dequeueReusableCell(withIdentifier: ProfileHeaderCell.nameOfClass, for: indexPath) as? ProfileHeaderCell else {
+        guard let cellType = Cells(rawValue: indexPath.row) else {
             return UITableViewCell()
         }
-        profileHeader.configure(avatarPath: model?.userAvatar, email: model?.userEmail)
-        return profileHeader
+        switch cellType {
+        case .header:
+            return configureHeaderCell(tableView, indexPath: indexPath)
+        case .logout:
+            return configureLogoutCell(tableView, indexPath: indexPath)
+        }
+
     }
 
 }
@@ -55,7 +78,39 @@ extension ProfileAdapter: UITableViewDataSource {
 extension ProfileAdapter: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return ProfileHeaderCell.height()
+        guard let cellType = Cells(rawValue: indexPath.row) else {
+            return 0.0
+        }
+        switch cellType {
+        case .header:
+            return ProfileHeaderCell.height()
+        case .logout:
+            return ProfileLogoutCell.height()
+        }
+    }
+
+}
+
+// MARK: - Configure Cells
+
+private extension ProfileAdapter {
+
+    func configureHeaderCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        guard let profileHeader = tableView.dequeueReusableCell(withIdentifier: ProfileHeaderCell.nameOfClass, for: indexPath) as? ProfileHeaderCell else {
+            return UITableViewCell()
+        }
+        profileHeader.configure(avatarPath: model?.userAvatar, email: model?.userEmail)
+        return profileHeader
+    }
+
+    func configureLogoutCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        guard let logoutCell = tableView.dequeueReusableCell(withIdentifier: ProfileLogoutCell.nameOfClass, for: indexPath) as? ProfileLogoutCell else {
+            return UITableViewCell()
+        }
+        logoutCell.logoutClosure = { [weak self] in
+            self?.logoutClosure?()
+        }
+        return logoutCell
     }
 
 }

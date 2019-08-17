@@ -79,6 +79,7 @@
 		5778EA5623083385000E893F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA5523083385000E893F /* ProfileViewModel.swift */; };
 		5778EA5A23083853000E893F /* ProfileAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA5923083853000E893F /* ProfileAdapter.swift */; };
 		5778EA5C230838A4000E893F /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA5B230838A4000E893F /* UITableView.swift */; };
+		5778EA5F23083F7B000E893F /* ProfileLogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA5E23083F7B000E893F /* ProfileLogoutCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,6 +158,7 @@
 		5778EA5523083385000E893F /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5778EA5923083853000E893F /* ProfileAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdapter.swift; sourceTree = "<group>"; };
 		5778EA5B230838A4000E893F /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		5778EA5E23083F7B000E893F /* ProfileLogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLogoutCell.swift; sourceTree = "<group>"; };
 		A0AE20861AC70ED27B6D01A9 /* Pods-SomeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.debug.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A82B2FF762F035AD669D0EEE /* Pods-SomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.release.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -625,6 +627,7 @@
 		5778EA5023083306000E893F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				5778EA5D23083F69000E893F /* ProfileLogoutCell */,
 				5778EA512308330D000E893F /* ProfileHeaderCell */,
 			);
 			path = Cells;
@@ -644,6 +647,14 @@
 				5778EA5523083385000E893F /* ProfileViewModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5778EA5D23083F69000E893F /* ProfileLogoutCell */ = {
+			isa = PBXGroup;
+			children = (
+				5778EA5E23083F7B000E893F /* ProfileLogoutCell.swift */,
+			);
+			path = ProfileLogoutCell;
 			sourceTree = "<group>";
 		};
 		E9E26F996D488C4A4F312D88 /* Pods */ = {
@@ -804,6 +815,7 @@
 				5716D7FF230210FD006AEE7C /* ProfileCoordinatorOutput.swift in Sources */,
 				5716D7C3230207D3006AEE7C /* RandomImagesViewOutput.swift in Sources */,
 				5716D7FB23020F72006AEE7C /* UIApplication.swift in Sources */,
+				5778EA5F23083F7B000E893F /* ProfileLogoutCell.swift in Sources */,
 				5716D7B123020157006AEE7C /* MainTabBarModuleOutput.swift in Sources */,
 				5716D7FD23021045006AEE7C /* ProfileCoordinator.swift in Sources */,
 				57162F16230082C000B05851 /* Coordinator.swift in Sources */,
