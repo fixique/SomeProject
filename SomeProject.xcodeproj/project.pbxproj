@@ -82,6 +82,7 @@
 		5778EA5F23083F7B000E893F /* ProfileLogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA5E23083F7B000E893F /* ProfileLogoutCell.swift */; };
 		5778EA63230844CC000E893F /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA62230844CC000E893F /* SongCell.swift */; };
 		5778EA6723084671000E893F /* SongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA6623084671000E893F /* SongViewModel.swift */; };
+		5778EA692308490B000E893F /* PlayListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA682308490B000E893F /* PlayListAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,6 +164,7 @@
 		5778EA5E23083F7B000E893F /* ProfileLogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLogoutCell.swift; sourceTree = "<group>"; };
 		5778EA62230844CC000E893F /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		5778EA6623084671000E893F /* SongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewModel.swift; sourceTree = "<group>"; };
+		5778EA682308490B000E893F /* PlayListAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListAdapter.swift; sourceTree = "<group>"; };
 		A0AE20861AC70ED27B6D01A9 /* Pods-SomeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.debug.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A82B2FF762F035AD669D0EEE /* Pods-SomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.release.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -667,6 +669,7 @@
 			isa = PBXGroup;
 			children = (
 				5778EA612308448D000E893F /* Cells */,
+				5778EA682308490B000E893F /* PlayListAdapter.swift */,
 			);
 			path = Adapter;
 			sourceTree = "<group>";
@@ -882,6 +885,7 @@
 				57162F182300832B00B05851 /* Router.swift in Sources */,
 				5716D7E723020A3D006AEE7C /* PlayListPresenter.swift in Sources */,
 				57162F50230099A200B05851 /* Color.swift in Sources */,
+				5778EA692308490B000E893F /* PlayListAdapter.swift in Sources */,
 				5716D80323021545006AEE7C /* ApplicationCoordinator.swift in Sources */,
 				57162F672300B8F700B05851 /* UIButton.swift in Sources */,
 				5716D7E623020A3D006AEE7C /* PlayListModuleOutput.swift in Sources */,

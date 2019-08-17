@@ -18,6 +18,7 @@ final class SongCell: UITableViewCell {
         static let commonOffset: CGFloat = 16.0
 
         static let separatorHeight: CGFloat = 1.0
+        static let animationDuration: TimeInterval = 0.3
     }
 
     // MARK: – Private Properties
@@ -37,6 +38,14 @@ final class SongCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupInitialState()
+    }
+
+    // MARK: - UITableViewCell
+
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        UIView.animate(withDuration: Constants.animationDuration) {
+            self.contentView.backgroundColor = highlighted ? Color.Main.highlight : Color.Main.background
+        }
     }
 
     // MARK: - Internal Methods
@@ -62,13 +71,13 @@ private extension SongCell {
         songImageView.layer.cornerRadius = Constants.songImageCornerRaduis
         songImageView.layer.masksToBounds = true
         songImageView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(songImageView)
+        contentView.addSubview(songImageView)
 
-        let topConstraint = songImageView.topAnchor.constraint(equalTo: topAnchor, constant: Constants.commonOffset)
-        let leftConstraint = songImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.commonOffset)
+        let topConstraint = songImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.commonOffset)
+        let leftConstraint = songImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.commonOffset)
         let heightConstraint = songImageView.heightAnchor.constraint(equalToConstant: Constants.songImageViewSize.height)
         let widthConstraint = songImageView.widthAnchor.constraint(equalToConstant: Constants.songImageViewSize.width)
-        let bottomConstraint = songImageView.bottomAnchor.constraint(greaterThanOrEqualTo: bottomAnchor, constant: Constants.commonOffset)
+        let bottomConstraint = songImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -Constants.commonOffset)
 
         NSLayoutConstraint.activate([topConstraint, leftConstraint, heightConstraint, widthConstraint, bottomConstraint])
     }
@@ -76,13 +85,14 @@ private extension SongCell {
     func configureSeparator() {
         separatorView.backgroundColor = Color.Main.highlight
         separatorView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(separatorView)
+        contentView.addSubview(separatorView)
 
-        let leftConstraint = separatorView.leftAnchor.constraint(equalTo: leftAnchor)
-        let rightConstraint = separatorView.rightAnchor.constraint(equalTo: rightAnchor)
-        let bottomConstraint = separatorView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        let leftConstraint = separatorView.leftAnchor.constraint(equalTo: contentView.leftAnchor)
+        let rightConstraint = separatorView.rightAnchor.constraint(equalTo: contentView.rightAnchor)
+        let bottomConstraint = separatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        let heightConstraint = separatorView.heightAnchor.constraint(equalToConstant: Constants.separatorHeight)
 
-        NSLayoutConstraint.activate([leftConstraint, rightConstraint, bottomConstraint])
+        NSLayoutConstraint.activate([leftConstraint, rightConstraint, bottomConstraint, heightConstraint])
     }
 
 }

@@ -14,6 +14,11 @@ final class PlayListViewController: UIViewController {
 
     var output: PlayListViewOutput?
 
+    // MARK: - Private Properties
+
+    private let tableView = UITableView()
+    private var adapter: PlayListAdapter?
+
     // MARK: - UIViewController
 
     override func viewDidLoad() {
@@ -30,6 +35,11 @@ extension PlayListViewController: PlayListViewInput {
     func setupInitialState() {
         configureBackground()
         configureNavigationBar()
+        configureTableView()
+    }
+
+    func configure(with models: [SongViewModel]) {
+        adapter?.configure(with: models)
     }
 
 }
@@ -45,6 +55,20 @@ private extension PlayListViewController {
     func configureNavigationBar() {
         navigationController?.applyWhiteNavigationBarStyle()
         title = L10n.Playlist.Navbar.title
+    }
+
+    func configureTableView() {
+        adapter = PlayListAdapter(with: tableView)
+        tableView.dataSource = adapter
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
+
+        let topConstraint = tableView.topAnchor.constraint(equalTo: view.topAnchor)
+        let leftConstraint = tableView.leftAnchor.constraint(equalTo: view.leftAnchor)
+        let rightConstraint = tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
+        let bottomConstraint = tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+
+        NSLayoutConstraint.activate([topConstraint, leftConstraint, rightConstraint, bottomConstraint])
     }
 
 }
