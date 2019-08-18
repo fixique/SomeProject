@@ -72,41 +72,23 @@ private extension RandomImagesViewController {
 
     func configureImageView() {
         view.addSubview(randomImageView)
-        randomImageView.translatesAutoresizingMaskIntoConstraints = false
         randomImageView.contentMode = .scaleAspectFit
-
-        let imageViewTopConstraint = randomImageView.topAnchor.constraint(equalTo: view.topAnchor)
-        let imageViewLeftConstraint = randomImageView.leftAnchor.constraint(equalTo: view.leftAnchor)
-        let imageViewRightConstraint = randomImageView.rightAnchor.constraint(equalTo: view.rightAnchor)
-
-        NSLayoutConstraint.activate([imageViewTopConstraint, imageViewLeftConstraint, imageViewRightConstraint])
+        randomImageView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor)
     }
 
     func configureButtonContainer() {
         view.addSubview(buttonContainer)
-        buttonContainer.translatesAutoresizingMaskIntoConstraints = false
-
-        let containerViewTopConstraint = buttonContainer.topAnchor.constraint(equalTo: randomImageView.bottomAnchor)
-        let containerViewLeftConstraint = buttonContainer.leftAnchor.constraint(equalTo: view.leftAnchor)
-        let containerViewRightConstraint = buttonContainer.rightAnchor.constraint(equalTo: view.rightAnchor)
-        let containerViewBottomConstraint = buttonContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        let containerViewHeightConstraint = buttonContainer.heightAnchor.constraint(equalTo: randomImageView.heightAnchor, multiplier: 1.0 / 3.0, constant: 0)
-
-        NSLayoutConstraint.activate([containerViewTopConstraint, containerViewLeftConstraint, containerViewRightConstraint, containerViewBottomConstraint, containerViewHeightConstraint])
+        buttonContainer.anchor(top: randomImageView.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
+        buttonContainer.heightAnchor.constraint(equalTo: randomImageView.heightAnchor, multiplier: 1.0 / 3.0, constant: 0).isActive = true
     }
 
     func configureUpdateButton() {
         buttonContainer.addSubview(updateButton)
         updateButton.setTitle(L10n.Randomimages.Buttons.Update.title, for: .normal)
-        updateButton.translatesAutoresizingMaskIntoConstraints = false
         updateButton.addTarget(self, action: #selector(updateButtonPressed), for: .touchUpInside)
 
-        let verticalConstraint = updateButton.centerYAnchor.constraint(equalTo: buttonContainer.centerYAnchor)
-        let horizontalConstraint = updateButton.centerXAnchor.constraint(equalTo: buttonContainer.centerXAnchor)
-        let heightConstraint = updateButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize.height)
-        let widthConstraint = updateButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize.width)
-
-        NSLayoutConstraint.activate([verticalConstraint, horizontalConstraint, heightConstraint, widthConstraint])
+        updateButton.anchorCenter(to: buttonContainer)
+        updateButton.anchorSize(size: Constants.buttonSize)
     }
 
 }
