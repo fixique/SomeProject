@@ -15,12 +15,12 @@ final class SongCell: UITableViewCell {
     private enum Constants {
         static let songImageViewSize = CGSize(width: 80.0, height: 80.0)
         static let songImageCornerRaduis: CGFloat = 5.0
-        static let commonOffset: CGFloat = 16.0
+        static let songImageViewPadding = UIEdgeInsets(top: 16.0, left: 16.0, bottom: -16.0, right: 0.0)
+        static let songNamePadding = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 16.0)
+        static let songAuthorPadding = UIEdgeInsets(top: 10.0, left: 16.0, bottom: -16.0, right: 16.0)
 
-        static let separatorHeight: CGFloat = 1.0
+        static let separatorSize = CGSize(width: 0.0, height: 1.0)
         static let animationDuration: TimeInterval = 0.3
-
-        static let authorLabelTopOffset: CGFloat = 10.0
     }
 
     // MARK: – Private Properties
@@ -76,29 +76,15 @@ private extension SongCell {
         songImageView.contentMode = .scaleAspectFill
         songImageView.layer.cornerRadius = Constants.songImageCornerRaduis
         songImageView.layer.masksToBounds = true
-        songImageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(songImageView)
-
-        let topConstraint = songImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.commonOffset)
-        let leftConstraint = songImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.commonOffset)
-        let heightConstraint = songImageView.heightAnchor.constraint(equalToConstant: Constants.songImageViewSize.height)
-        let widthConstraint = songImageView.widthAnchor.constraint(equalToConstant: Constants.songImageViewSize.width)
-        let bottomConstraint = songImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -Constants.commonOffset)
-
-        NSLayoutConstraint.activate([topConstraint, leftConstraint, heightConstraint, widthConstraint, bottomConstraint])
+        songImageView.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, padding: Constants.songImageViewPadding, size: Constants.songImageViewSize)
+        songImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: Constants.songImageViewPadding.bottom).isActive = true
     }
 
     func configureSeparator() {
         separatorView.backgroundColor = Color.Main.highlight
-        separatorView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(separatorView)
-
-        let leftConstraint = separatorView.leftAnchor.constraint(equalTo: contentView.leftAnchor)
-        let rightConstraint = separatorView.rightAnchor.constraint(equalTo: contentView.rightAnchor)
-        let bottomConstraint = separatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        let heightConstraint = separatorView.heightAnchor.constraint(equalToConstant: Constants.separatorHeight)
-
-        NSLayoutConstraint.activate([leftConstraint, rightConstraint, bottomConstraint, heightConstraint])
+        separatorView.anchor(leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, size: Constants.separatorSize)
     }
 
     func configureSongNameLabel() {
@@ -106,14 +92,8 @@ private extension SongCell {
         songNameLabel.font = .systemFont(ofSize: 18.0, weight: .medium)
         songNameLabel.numberOfLines = 0
         songNameLabel.text = nil
-        songNameLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(songNameLabel)
-
-        let topConstraint = songNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.commonOffset)
-        let leftConstraint = songNameLabel.leftAnchor.constraint(equalTo: songImageView.rightAnchor, constant: Constants.commonOffset)
-        let rightConstraint = songNameLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -Constants.commonOffset)
-
-        NSLayoutConstraint.activate([topConstraint, leftConstraint, rightConstraint])
+        songNameLabel.anchor(top: contentView.topAnchor, leading: songImageView.trailingAnchor, trailing: contentView.trailingAnchor, padding: Constants.songNamePadding)
     }
 
     func configureSongAuthorLabel() {
@@ -121,15 +101,10 @@ private extension SongCell {
         songAuthorLabel.font = .systemFont(ofSize: 14.0, weight: .light)
         songAuthorLabel.numberOfLines = 0
         songAuthorLabel.text = nil
-        songAuthorLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(songAuthorLabel)
 
-        let topConstraint = songAuthorLabel.topAnchor.constraint(equalTo: songNameLabel.bottomAnchor, constant: Constants.authorLabelTopOffset)
-        let leftConstraint = songAuthorLabel.leftAnchor.constraint(equalTo: songImageView.rightAnchor, constant: Constants.commonOffset)
-        let rightConstraint = songAuthorLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -Constants.commonOffset)
-        let bottomConstraint = songAuthorLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -Constants.commonOffset)
-
-        NSLayoutConstraint.activate([topConstraint, leftConstraint, rightConstraint, bottomConstraint])
+        songAuthorLabel.anchor(top: songNameLabel.bottomAnchor, leading: songImageView.trailingAnchor, trailing: contentView.trailingAnchor, padding: Constants.songAuthorPadding)
+        songAuthorLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: Constants.songAuthorPadding.bottom).isActive = true
     }
 
 }
