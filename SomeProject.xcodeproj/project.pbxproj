@@ -239,13 +239,11 @@
 			isa = PBXGroup;
 			children = (
 				57162F102300820E00B05851 /* Application */,
-				5778EA6F23085F66000E893F /* Models */,
-				5778EA74230862A5000E893F /* Services */,
 				57162F1D2300853800B05851 /* Flows */,
 				57162F122300826500B05851 /* Library */,
-				57162F612300B88500B05851 /* Styles */,
+				5778EA6F23085F66000E893F /* Models */,
 				57162F112300824100B05851 /* Resources */,
-				57162F14230082A000B05851 /* Protocols */,
+				5778EA74230862A5000E893F /* Services */,
 			);
 			path = SomeProject;
 			sourceTree = "<group>";
@@ -264,11 +262,11 @@
 		57162F112300824100B05851 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5778EA982308D6B9000E893F /* JSON */,
-				57162F3E230095CC00B05851 /* Constants */,
-				57162F3D230095B800B05851 /* Strings */,
-				57162F3C230095B000B05851 /* Images */,
 				57162F3B230095AC00B05851 /* Colors */,
+				57162F3E230095CC00B05851 /* Constants */,
+				57162F3C230095B000B05851 /* Images */,
+				5778EA982308D6B9000E893F /* JSON */,
+				57162F3D230095B800B05851 /* Strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -276,9 +274,11 @@
 		57162F122300826500B05851 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				57162F5923009B3E00B05851 /* Extensions */,
-				57162F3523008F8C00B05851 /* ReusableLayers */,
 				57162F132300829300B05851 /* BaseClasses */,
+				57162F5923009B3E00B05851 /* Extensions */,
+				57162F14230082A000B05851 /* Protocols */,
+				57162F3523008F8C00B05851 /* ReusableLayers */,
+				57162F612300B88500B05851 /* Styles */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -299,8 +299,8 @@
 			isa = PBXGroup;
 			children = (
 				57162F15230082C000B05851 /* Coordinator.swift */,
-				57162F172300832B00B05851 /* Router.swift */,
 				57162F192300834B00B05851 /* Presentable.swift */,
+				57162F172300832B00B05851 /* Router.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -308,11 +308,11 @@
 		57162F1D2300853800B05851 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				57162F1E2300853F00B05851 /* Auth */,
+				5716D7A42301FCFE006AEE7C /* MainTabBar */,
 				5716D7CE23020A3D006AEE7C /* PlayLIst */,
 				5716D7DA23020A3D006AEE7C /* Profile */,
 				5716D7BB23020752006AEE7C /* RandomImages */,
-				5716D7A42301FCFE006AEE7C /* MainTabBar */,
-				57162F1E2300853F00B05851 /* Auth */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
