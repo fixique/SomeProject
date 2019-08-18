@@ -31,7 +31,18 @@ extension UIView {
         centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: yOffset).isActive = true
     }
 
-    func anchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero) {
+    func anchorCenter(centerX: NSLayoutXAxisAnchor? = nil, centerY: NSLayoutYAxisAnchor? = nil, xOffset: CGFloat = 0.0, yOffset: CGFloat = 0.0) {
+        translatesAutoresizingMaskIntoConstraints = false
+        if let centerX = centerX {
+            centerXAnchor.constraint(equalTo: centerX, constant: xOffset).isActive = true
+        }
+
+        if let centerY = centerY {
+            centerYAnchor.constraint(equalTo: centerY, constant: yOffset).isActive = true
+        }
+    }
+
+    func anchor(top: NSLayoutYAxisAnchor? = nil, leading: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, trailing: NSLayoutXAxisAnchor? = nil, padding: UIEdgeInsets = .zero, size: CGSize = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
 
         if let top = top {

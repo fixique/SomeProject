@@ -14,9 +14,9 @@ final class ProfileHeaderCell: UITableViewCell {
 
     private enum Constants {
         static let avatarSize = CGSize(width: 100.0, height: 100.0)
-        static let avatarTopOffset: CGFloat = 30.0
+        static let avatarImagePadding = UIEdgeInsets(top: 30.0, left: 0.0, bottom: 0.0, right: 0.0)
         static let avatarStroke: CGFloat = 1.0
-        static let emailEdges = UIEdgeInsets(top: 20.0, left: 16.0, bottom: 15.0, right: -16.0)
+        static let emailEdges = UIEdgeInsets(top: 20.0, left: 16.0, bottom: 15.0, right: 16.0)
     }
 
     // MARK: - Private Properties
@@ -56,7 +56,6 @@ private extension ProfileHeaderCell {
     }
 
     func configureAvatar() {
-        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         avatarImageView.layer.cornerRadius = Constants.avatarSize.height / 2
         avatarImageView.layer.borderWidth = Constants.avatarStroke
         avatarImageView.layer.borderColor = Color.Main.stroke.cgColor
@@ -64,12 +63,8 @@ private extension ProfileHeaderCell {
         avatarImageView.backgroundColor = Color.Main.background
         contentView.addSubview(avatarImageView)
 
-        let avatarTopConstraint = avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.avatarTopOffset)
-        let avatarHorizontalConstraint = avatarImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
-        let avatarHeightConstraint = avatarImageView.heightAnchor.constraint(equalToConstant: Constants.avatarSize.height)
-        let avatarWidthConstraint = avatarImageView.widthAnchor.constraint(equalToConstant: Constants.avatarSize.width)
-
-        NSLayoutConstraint.activate([avatarTopConstraint, avatarHorizontalConstraint, avatarHeightConstraint, avatarWidthConstraint])
+        avatarImageView.anchor(top: contentView.topAnchor, padding: Constants.avatarImagePadding, size: Constants.avatarSize)
+        avatarImageView.anchorCenter(centerX: contentView.centerXAnchor)
     }
 
     func configureEmailLabel() {
@@ -77,15 +72,9 @@ private extension ProfileHeaderCell {
         emailLabel.font = .systemFont(ofSize: 20.0, weight: .semibold)
         emailLabel.textAlignment = .center
         emailLabel.text = nil
-        emailLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(emailLabel)
 
-        let emailTopConstraint = emailLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: Constants.emailEdges.top)
-        let emailLeftConstraint = emailLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.emailEdges.left)
-        let emailRightConstraint = emailLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: Constants.emailEdges.right)
-        let emailBottomConstraint = emailLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.emailEdges.bottom)
-
-        NSLayoutConstraint.activate([emailTopConstraint, emailLeftConstraint, emailRightConstraint, emailBottomConstraint])
+        emailLabel.anchor(top: avatarImageView.bottomAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: Constants.emailEdges)
     }
 
 }
