@@ -83,7 +83,6 @@
 		5778EA63230844CC000E893F /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA62230844CC000E893F /* SongCell.swift */; };
 		5778EA6723084671000E893F /* SongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA6623084671000E893F /* SongViewModel.swift */; };
 		5778EA692308490B000E893F /* PlayListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA682308490B000E893F /* PlayListAdapter.swift */; };
-		5778EA6E23085F43000E893F /* playlist.json in Resources */ = {isa = PBXBuildFile; fileRef = 5778EA6D23085F43000E893F /* playlist.json */; };
 		5778EA7323085F95000E893F /* PlayListResponseEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA7223085F95000E893F /* PlayListResponseEntry.swift */; };
 		5778EA77230862C8000E893F /* PlayListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA76230862C8000E893F /* PlayListService.swift */; };
 		5778EA7A2308BFCB000E893F /* SongDetailViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA792308BFCB000E893F /* SongDetailViewInput.swift */; };
@@ -96,6 +95,7 @@
 		5778EA902308C5CD000E893F /* SongHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA8F2308C5CD000E893F /* SongHeaderCell.swift */; };
 		5778EA932308C837000E893F /* SongLyricsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA922308C837000E893F /* SongLyricsCell.swift */; };
 		5778EA972308CAC6000E893F /* SongDetailAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5778EA962308CAC6000E893F /* SongDetailAdapter.swift */; };
+		5778EA9A2308D6C3000E893F /* playlist.json in Resources */ = {isa = PBXBuildFile; fileRef = 5778EA992308D6C3000E893F /* playlist.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -178,7 +178,6 @@
 		5778EA62230844CC000E893F /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		5778EA6623084671000E893F /* SongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewModel.swift; sourceTree = "<group>"; };
 		5778EA682308490B000E893F /* PlayListAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListAdapter.swift; sourceTree = "<group>"; };
-		5778EA6D23085F43000E893F /* playlist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = playlist.json; path = ../../../../../Desktop/playlist.json; sourceTree = "<group>"; };
 		5778EA7223085F95000E893F /* PlayListResponseEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListResponseEntry.swift; sourceTree = "<group>"; };
 		5778EA76230862C8000E893F /* PlayListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListService.swift; sourceTree = "<group>"; };
 		5778EA792308BFCB000E893F /* SongDetailViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailViewInput.swift; sourceTree = "<group>"; };
@@ -191,6 +190,7 @@
 		5778EA8F2308C5CD000E893F /* SongHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongHeaderCell.swift; sourceTree = "<group>"; };
 		5778EA922308C837000E893F /* SongLyricsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongLyricsCell.swift; sourceTree = "<group>"; };
 		5778EA962308CAC6000E893F /* SongDetailAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailAdapter.swift; sourceTree = "<group>"; };
+		5778EA992308D6C3000E893F /* playlist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = playlist.json; sourceTree = "<group>"; };
 		A0AE20861AC70ED27B6D01A9 /* Pods-SomeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.debug.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A82B2FF762F035AD669D0EEE /* Pods-SomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeProject.release.xcconfig"; path = "Target Support Files/Pods-SomeProject/Pods-SomeProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -262,7 +262,7 @@
 		57162F112300824100B05851 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5778EA6A23085EB1000E893F /* Json */,
+				5778EA982308D6B9000E893F /* JSON */,
 				57162F3E230095CC00B05851 /* Constants */,
 				57162F3D230095B800B05851 /* Strings */,
 				57162F3C230095B000B05851 /* Images */,
@@ -720,14 +720,6 @@
 			path = SongCell;
 			sourceTree = "<group>";
 		};
-		5778EA6A23085EB1000E893F /* Json */ = {
-			isa = PBXGroup;
-			children = (
-				5778EA6D23085F43000E893F /* playlist.json */,
-			);
-			path = Json;
-			sourceTree = "<group>";
-		};
 		5778EA6F23085F66000E893F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -857,6 +849,14 @@
 			path = SongLyricsCell;
 			sourceTree = "<group>";
 		};
+		5778EA982308D6B9000E893F /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				5778EA992308D6C3000E893F /* playlist.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		E9E26F996D488C4A4F312D88 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -930,7 +930,7 @@
 				57162F092300768E00B05851 /* LaunchScreen.storyboard in Resources */,
 				57162F54230099C800B05851 /* Localizable.strings in Resources */,
 				57162F062300768E00B05851 /* Assets.xcassets in Resources */,
-				5778EA6E23085F43000E893F /* playlist.json in Resources */,
+				5778EA9A2308D6C3000E893F /* playlist.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
