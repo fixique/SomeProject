@@ -55,15 +55,8 @@ private extension SongDetailViewController {
     func configureTableView() {
         adapter = SongDetailAdapter(with: tableView)
         tableView.dataSource = adapter
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
-
-        let topConstraint = tableView.topAnchor.constraint(equalTo: view.topAnchor)
-        let leftConstraint = tableView.leftAnchor.constraint(equalTo: view.leftAnchor)
-        let rightConstraint = tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
-        let bottomConstraint = tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-
-        NSLayoutConstraint.activate([topConstraint, leftConstraint, rightConstraint, bottomConstraint])
+        tableView.fillSuperview()
     }
 
 }
