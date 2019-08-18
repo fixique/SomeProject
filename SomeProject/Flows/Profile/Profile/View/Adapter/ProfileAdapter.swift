@@ -21,6 +21,7 @@ final class ProfileAdapter: NSObject {
 
     private enum Constants {
         static let cellsCount: Int = 2
+        static let estimatedRowHeight: CGFloat = 189.0
     }
 
     // MARK: - Properties
@@ -38,6 +39,8 @@ final class ProfileAdapter: NSObject {
         tableView.registerCell(ProfileHeaderCell.self)
         tableView.registerCell(ProfileLogoutCell.self)
         tableView.separatorStyle = .none
+        tableView.estimatedRowHeight = Constants.estimatedRowHeight
+        tableView.rowHeight = UITableView.automaticDimension
         self.tableView = tableView
     }
 
@@ -69,24 +72,6 @@ extension ProfileAdapter: UITableViewDataSource {
             return configureLogoutCell(tableView, indexPath: indexPath)
         }
 
-    }
-
-}
-
-// MARK: - UITableViewDelegate
-
-extension ProfileAdapter: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let cellType = Cells(rawValue: indexPath.row) else {
-            return 0.0
-        }
-        switch cellType {
-        case .header:
-            return ProfileHeaderCell.height()
-        case .logout:
-            return ProfileLogoutCell.height()
-        }
     }
 
 }

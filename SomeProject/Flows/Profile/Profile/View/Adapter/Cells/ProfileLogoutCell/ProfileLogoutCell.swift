@@ -14,8 +14,8 @@ final class ProfileLogoutCell: UITableViewCell {
 
     private enum Constants {
         static let buttonTopOffset: CGFloat = 15.0
+        static let buttonBottomOffset: CGFloat = 15.0
         static let buttonSize = CGSize(width: 250.0, height: 30.0)
-        static let cellHeight: CGFloat = 60.0
     }
 
     // MARK: - Properties
@@ -41,13 +41,8 @@ final class ProfileLogoutCell: UITableViewCell {
     // MARK: - UITableViewCell
 
     override func layoutSubviews() {
+        contentView.layoutSubviews()
         logoutButton.mainPrurpleStyle()
-    }
-
-    // MARK: - Class Methods
-
-    class func height() -> CGFloat {
-        return Constants.cellHeight
     }
 
 }
@@ -62,17 +57,18 @@ private extension ProfileLogoutCell {
     }
 
     func configureLogoutButton() {
-        addSubview(logoutButton)
+        contentView.addSubview(logoutButton)
         logoutButton.setTitle(L10n.Profile.Buttons.Logout.title, for: .normal)
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         logoutButton.addTarget(self, action: #selector(logoutButtonPressed), for: .touchUpInside)
 
-        let topConstraint = logoutButton.topAnchor.constraint(equalTo: topAnchor, constant: Constants.buttonTopOffset)
-        let horizantalConstraint = logoutButton.centerXAnchor.constraint(equalTo: centerXAnchor)
+        let topConstraint = logoutButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.buttonTopOffset)
+        let horizantalConstraint = logoutButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         let heightConstraint = logoutButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize.height)
         let widthConstraint = logoutButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize.width)
+        let bottomConstraint = logoutButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.buttonBottomOffset)
 
-        NSLayoutConstraint.activate([topConstraint, horizantalConstraint, heightConstraint, widthConstraint])
+        NSLayoutConstraint.activate([topConstraint, horizantalConstraint, heightConstraint, widthConstraint, bottomConstraint])
     }
 
 }

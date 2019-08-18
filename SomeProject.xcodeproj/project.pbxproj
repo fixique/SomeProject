@@ -548,10 +548,10 @@
 		5716D7CE23020A3D006AEE7C /* PlayLIst */ = {
 			isa = PBXGroup;
 			children = (
-				5778EA8A2308C283000E893F /* Common */,
 				5716D800230211E1006AEE7C /* PlayListCoordinator.swift */,
 				5716D7CF23020A3D006AEE7C /* PlayList */,
 				5778EA782308BFA4000E893F /* SongDetail */,
+				5778EA8A2308C283000E893F /* Common */,
 			);
 			path = PlayLIst;
 			sourceTree = "<group>";

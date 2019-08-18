@@ -57,7 +57,6 @@ private extension ProfileViewController {
     func configureTableView() {
         adapter = ProfileAdapter(with: tableView)
         tableView.dataSource = adapter
-        tableView.delegate = adapter
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
 

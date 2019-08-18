@@ -17,7 +17,6 @@ final class ProfileHeaderCell: UITableViewCell {
         static let avatarTopOffset: CGFloat = 30.0
         static let avatarStroke: CGFloat = 1.0
         static let emailEdges = UIEdgeInsets(top: 20.0, left: 16.0, bottom: 15.0, right: -16.0)
-        static let cellHeight: CGFloat = 189.0
     }
 
     // MARK: - Private Properties
@@ -44,12 +43,6 @@ final class ProfileHeaderCell: UITableViewCell {
         emailLabel.text = email
     }
 
-    // MARK: - Class Methods
-
-    class func height() -> CGFloat {
-        return Constants.cellHeight
-    }
-
 }
 
 // MARK: - Configuration
@@ -69,10 +62,10 @@ private extension ProfileHeaderCell {
         avatarImageView.layer.borderColor = Color.Main.stroke.cgColor
         avatarImageView.layer.masksToBounds = true
         avatarImageView.backgroundColor = Color.Main.background
-        addSubview(avatarImageView)
+        contentView.addSubview(avatarImageView)
 
-        let avatarTopConstraint = avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: Constants.avatarTopOffset)
-        let avatarHorizontalConstraint = avatarImageView.centerXAnchor.constraint(equalTo: centerXAnchor)
+        let avatarTopConstraint = avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.avatarTopOffset)
+        let avatarHorizontalConstraint = avatarImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         let avatarHeightConstraint = avatarImageView.heightAnchor.constraint(equalToConstant: Constants.avatarSize.height)
         let avatarWidthConstraint = avatarImageView.widthAnchor.constraint(equalToConstant: Constants.avatarSize.width)
 
@@ -85,13 +78,14 @@ private extension ProfileHeaderCell {
         emailLabel.textAlignment = .center
         emailLabel.text = nil
         emailLabel.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(emailLabel)
+        contentView.addSubview(emailLabel)
 
         let emailTopConstraint = emailLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: Constants.emailEdges.top)
-        let emailLeftConstraint = emailLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.emailEdges.left)
-        let emailRightConstraint = emailLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: Constants.emailEdges.right)
+        let emailLeftConstraint = emailLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.emailEdges.left)
+        let emailRightConstraint = emailLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: Constants.emailEdges.right)
+        let emailBottomConstraint = emailLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.emailEdges.bottom)
 
-        NSLayoutConstraint.activate([emailTopConstraint, emailLeftConstraint, emailRightConstraint])
+        NSLayoutConstraint.activate([emailTopConstraint, emailLeftConstraint, emailRightConstraint, emailBottomConstraint])
     }
 
 }
