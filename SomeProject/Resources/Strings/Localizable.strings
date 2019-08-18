@@ -35,6 +35,10 @@
 
 "PlayList.Navbar.title" = "Play List";
 
+// MARK: - SongDetail
+
+"SongDetail.LyricsCell.title" = "Lyrics";
+
 // MARK: - Profile
 
 "Profile.Navbar.title" = "Profile";

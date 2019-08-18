@@ -11,4 +11,6 @@ import Foundation
 protocol SongDetailViewInput: class {
     /// Method for setup initial state of view
     func setupInitialState()
+    /// Method for setup loaded view state
+    func configure(with song: SongViewModel)
 }

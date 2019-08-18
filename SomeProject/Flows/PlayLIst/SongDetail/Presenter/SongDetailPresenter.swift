@@ -34,7 +34,7 @@ extension SongDetailPresenter: SongDetailViewOutput {
 
     func viewLoaded() {
         view?.setupInitialState()
+        view?.configure(with: songModel)
     }
 
 }
-

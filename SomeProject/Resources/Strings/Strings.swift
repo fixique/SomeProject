@@ -108,6 +108,14 @@ enum L10n {
       static let title = L10n.tr("Localizable", "RandomImages.Navbar.title")
     }
   }
+
+  enum Songdetail {
+
+    enum Lyricscell {
+      /// Lyrics
+      static let title = L10n.tr("Localizable", "SongDetail.LyricsCell.title")
+    }
+  }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length nesting type_body_length type_name
 

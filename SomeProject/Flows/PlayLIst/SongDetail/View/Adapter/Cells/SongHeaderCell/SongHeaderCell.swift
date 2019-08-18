@@ -1,29 +1,26 @@
 //
-//  SongCell.swift
+//  SongHeaderCell.swift
 //  SomeProject
 //
-//  Created by Vladislav Krupenko on 17/08/2019.
+//  Created by Vladislav Krupenko on 18/08/2019.
 //  Copyright © 2019 Fixique. All rights reserved.
 //
 
 import UIKit
 
-final class SongCell: UITableViewCell {
+final class SongHeaderCell: UITableViewCell {
 
     // MARK: - Constants
 
     private enum Constants {
-        static let songImageViewSize = CGSize(width: 80.0, height: 80.0)
         static let songImageCornerRaduis: CGFloat = 5.0
+
         static let commonOffset: CGFloat = 16.0
-
-        static let separatorHeight: CGFloat = 1.0
-        static let animationDuration: TimeInterval = 0.3
-
         static let authorLabelTopOffset: CGFloat = 10.0
+        static let separatorHeight: CGFloat = 1.0
     }
 
-    // MARK: – Private Properties
+    // MARK: - Private Properties
 
     private let songImageView = UIImageView()
     private let songNameLabel = UILabel()
@@ -42,34 +39,26 @@ final class SongCell: UITableViewCell {
         setupInitialState()
     }
 
-    // MARK: - UITableViewCell
-
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        UIView.animate(withDuration: Constants.animationDuration) {
-            self.contentView.backgroundColor = highlighted ? Color.Main.highlight : Color.Main.background
-        }
-    }
-
     // MARK: - Internal Methods
 
-    func configure(with model: SongViewModel) {
-        songImageView.downloadImage(urlPath: model.songImagePath, placeholder: UIImage(asset: Asset.ImagePlaceholders.imagePlaceholder))
-        songNameLabel.text = model.songName
-        songAuthorLabel.text = model.songAuthor
+    func configure(with model: SongViewModel?) {
+        songImageView.downloadImage(urlPath: model?.songImagePath, placeholder: UIImage(asset: Asset.ImagePlaceholders.imagePlaceholder))
+        songNameLabel.text = model?.songName
+        songAuthorLabel.text = model?.songAuthor
     }
 
 }
 
 // MARK: - Configuration
 
-private extension SongCell {
+private extension SongHeaderCell {
 
     func setupInitialState() {
         selectionStyle = .none
         configureImageView()
-        configureSeparator()
         configureSongNameLabel()
         configureSongAuthorLabel()
+        configureSeparator()
     }
 
     func configureImageView() {
@@ -81,24 +70,10 @@ private extension SongCell {
 
         let topConstraint = songImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.commonOffset)
         let leftConstraint = songImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.commonOffset)
-        let heightConstraint = songImageView.heightAnchor.constraint(equalToConstant: Constants.songImageViewSize.height)
-        let widthConstraint = songImageView.widthAnchor.constraint(equalToConstant: Constants.songImageViewSize.width)
-        let bottomConstraint = songImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -Constants.commonOffset)
+        let rightConstraint = songImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -Constants.commonOffset)
+        let heigthConstraint = songImageView.heightAnchor.constraint(equalTo: songImageView.widthAnchor, multiplier: 1)
 
-        NSLayoutConstraint.activate([topConstraint, leftConstraint, heightConstraint, widthConstraint, bottomConstraint])
-    }
-
-    func configureSeparator() {
-        separatorView.backgroundColor = Color.Main.highlight
-        separatorView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(separatorView)
-
-        let leftConstraint = separatorView.leftAnchor.constraint(equalTo: contentView.leftAnchor)
-        let rightConstraint = separatorView.rightAnchor.constraint(equalTo: contentView.rightAnchor)
-        let bottomConstraint = separatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        let heightConstraint = separatorView.heightAnchor.constraint(equalToConstant: Constants.separatorHeight)
-
-        NSLayoutConstraint.activate([leftConstraint, rightConstraint, bottomConstraint, heightConstraint])
+        NSLayoutConstraint.activate([topConstraint, leftConstraint, rightConstraint, heigthConstraint])
     }
 
     func configureSongNameLabel() {
@@ -109,8 +84,8 @@ private extension SongCell {
         songNameLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(songNameLabel)
 
-        let topConstraint = songNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.commonOffset)
-        let leftConstraint = songNameLabel.leftAnchor.constraint(equalTo: songImageView.rightAnchor, constant: Constants.commonOffset)
+        let topConstraint = songNameLabel.topAnchor.constraint(equalTo: songImageView.bottomAnchor, constant: Constants.commonOffset)
+        let leftConstraint = songNameLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.commonOffset)
         let rightConstraint = songNameLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -Constants.commonOffset)
 
         NSLayoutConstraint.activate([topConstraint, leftConstraint, rightConstraint])
@@ -125,11 +100,24 @@ private extension SongCell {
         contentView.addSubview(songAuthorLabel)
 
         let topConstraint = songAuthorLabel.topAnchor.constraint(equalTo: songNameLabel.bottomAnchor, constant: Constants.authorLabelTopOffset)
-        let leftConstraint = songAuthorLabel.leftAnchor.constraint(equalTo: songImageView.rightAnchor, constant: Constants.commonOffset)
+        let leftConstraint = songAuthorLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.commonOffset)
         let rightConstraint = songAuthorLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -Constants.commonOffset)
         let bottomConstraint = songAuthorLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -Constants.commonOffset)
 
         NSLayoutConstraint.activate([topConstraint, leftConstraint, rightConstraint, bottomConstraint])
+    }
+
+    func configureSeparator() {
+        separatorView.backgroundColor = Color.Main.highlight
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(separatorView)
+
+        let leftConstraint = separatorView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.commonOffset)
+        let rightConstraint = separatorView.rightAnchor.constraint(equalTo: contentView.rightAnchor)
+        let bottomConstraint = separatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        let heightConstraint = separatorView.heightAnchor.constraint(equalToConstant: Constants.separatorHeight)
+
+        NSLayoutConstraint.activate([leftConstraint, rightConstraint, bottomConstraint, heightConstraint])
     }
 
 }
