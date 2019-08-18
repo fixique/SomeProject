@@ -28,15 +28,23 @@ extension PlayListPresenter: PlayListViewOutput {
 
     func viewLoaded() {
         view?.setupInitialState()
-//        let song = SongViewModel(songName: "Runaway Baby", songAuthor: "Bruno Mars", songImagePath: "https://sun9-54.userapi.com/c853520/v853520781/c34ed/2JRFzwKjExY.jpg", songText: nil)
-//        let some = [song, song, song, song, song, song, song, song]
-        let items = PlayListService().getPlayListItems()?.items ?? []
-        let viewModels = items.compactMap({ SongViewModel(with: $0) })
-        view?.configure(with: viewModels)
+        configurePlayList()
     }
 
     func songSelect(song: SongViewModel) {
         onSongSelect?(song)
+    }
+
+}
+
+// MARK: - Private Methods
+
+private extension PlayListPresenter {
+
+    func configurePlayList() {
+        let items = PlayListService().getPlayListItems()?.items ?? []
+        let viewModels = items.compactMap { SongViewModel(with: $0) }
+        view?.configure(with: viewModels)
     }
 
 }
