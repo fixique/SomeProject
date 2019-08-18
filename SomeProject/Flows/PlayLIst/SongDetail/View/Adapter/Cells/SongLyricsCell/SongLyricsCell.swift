@@ -13,8 +13,10 @@ final class SongLyricsCell: UITableViewCell {
     // MARK: - Constants
 
     private enum Constants {
-        static let commonOffset: CGFloat = 16.0
-        static let separatorHeight: CGFloat = 1.0
+        static let titleLabelPadding = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 16.0)
+        static let separatorPadding = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 0.0)
+        static let separatorSize = CGSize(width: 0.0, height: 1.0)
+        static let lyricsLabelPadding = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0)
     }
 
     // MARK: - Private Properties
@@ -58,27 +60,14 @@ private extension SongLyricsCell {
         titleLabel.textColor = Color.Main.text
         titleLabel.font = .systemFont(ofSize: 18.0, weight: .medium)
         titleLabel.text = L10n.Songdetail.Lyricscell.title
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(titleLabel)
-
-        let topConstraint = titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.commonOffset)
-        let leftConstraint = titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.commonOffset)
-        let rightConstraint = titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -Constants.commonOffset)
-
-        NSLayoutConstraint.activate([topConstraint, leftConstraint, rightConstraint])
+        titleLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, trailing: contentView.trailingAnchor, padding: Constants.titleLabelPadding)
     }
 
     func configureSeparator() {
         separatorView.backgroundColor = Color.Main.highlight
-        separatorView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(separatorView)
-
-        let topConstraint = separatorView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.commonOffset)
-        let leftConstraint = separatorView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.commonOffset)
-        let rightConstraint = separatorView.rightAnchor.constraint(equalTo: contentView.rightAnchor)
-        let heightConstraint = separatorView.heightAnchor.constraint(equalToConstant: Constants.separatorHeight)
-
-        NSLayoutConstraint.activate([topConstraint, leftConstraint, rightConstraint, heightConstraint])
+        separatorView.anchor(top: titleLabel.bottomAnchor, leading: contentView.leadingAnchor, trailing: contentView.trailingAnchor, padding: Constants.separatorPadding, size: Constants.separatorSize)
     }
 
     func configureLyricsLabel() {
@@ -86,15 +75,8 @@ private extension SongLyricsCell {
         lyricsLabel.font = .systemFont(ofSize: 14.0, weight: .light)
         lyricsLabel.numberOfLines = 0
         lyricsLabel.text = nil
-        lyricsLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(lyricsLabel)
-
-        let topConstraint = lyricsLabel.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: Constants.commonOffset)
-        let leftConstraint = lyricsLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.commonOffset)
-        let rightConstraint = lyricsLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -Constants.commonOffset)
-        let bottomConstraint = lyricsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.commonOffset)
-
-        NSLayoutConstraint.activate([topConstraint, leftConstraint, rightConstraint, bottomConstraint])
+        lyricsLabel.anchor(top: separatorView.bottomAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.trailingAnchor, padding: Constants.lyricsLabelPadding)
     }
 
 }
