@@ -151,6 +151,7 @@ private extension RoundInputFieldView {
         inputField.font = .systemFont(ofSize: 12.0, weight: .regular)
         inputField.textColor = Color.InputFields.RoundInputField.tint
         inputField.tintColor = Color.InputFields.RoundInputField.tint
+        inputField.autocapitalizationType = .none
         inputField.addTarget(self, action: #selector(textfieldEditingChange(_:)), for: .editingChanged)
         inputField.delegate = self
         inputFieldContainer.addSubview(inputField)
