@@ -31,12 +31,11 @@ final class RoundInputFieldView: UIView {
     private enum Constants {
         static let fieldSize = CGSize(width: 250, height: 30.0)
         static let intrinsicSize = CGSize(width: 250.0, height: 39.0)
-        static let errorLabelTopSpace: CGFloat = 5.0
-        static let errorLabelLeftSpace: CGFloat = 14.0
-        static let errorLabelHeight: CGFloat = 12.0
+        static let errorLabelPadding = UIEdgeInsets(top: 5.0, left: 14.0, bottom: 0, right: 0)
+        static let errorLabelSize = CGSize(width: 0.0, height: 12.0)
 
         static let fieldStrokeWidth: CGFloat = 1.0
-        static let fieldMargin: UIEdgeInsets = UIEdgeInsets(top: -8, left: 14, bottom: 8, right: 14)
+        static let fieldMargin: UIEdgeInsets = UIEdgeInsets(top: 8, left: 14, bottom: 8, right: 14)
 
         static let animationDuration: TimeInterval = 0.3
     }
@@ -155,41 +154,27 @@ private extension RoundInputFieldView {
         inputField.addTarget(self, action: #selector(textfieldEditingChange(_:)), for: .editingChanged)
         inputField.delegate = self
         inputFieldContainer.addSubview(inputField)
-        inputField.translatesAutoresizingMaskIntoConstraints = false
 
-        let topFieldConstraint = inputField.topAnchor.constraint(equalTo: inputFieldContainer.topAnchor, constant: Constants.fieldMargin.top)
-        let leftFieldConstraint = inputField.leftAnchor.constraint(equalTo: inputFieldContainer.leftAnchor, constant: Constants.fieldMargin.left)
-        let rightFieldConstraint = inputField.rightAnchor.constraint(equalTo: inputFieldContainer.rightAnchor, constant: Constants.fieldMargin.right)
-        let bottomFieldConstraint = inputField.bottomAnchor.constraint(equalTo: inputFieldContainer.bottomAnchor, constant: Constants.fieldMargin.bottom)
-
-        NSLayoutConstraint.activate([topFieldConstraint, leftFieldConstraint, rightFieldConstraint, bottomFieldConstraint])
+        inputField.anchor(top: inputFieldContainer.topAnchor,
+                          leading: inputFieldContainer.leadingAnchor,
+                          bottom: inputFieldContainer.bottomAnchor,
+                          trailing: inputFieldContainer.trailingAnchor,
+                          padding: Constants.fieldMargin)
     }
 
     func configureConstraints() {
-        inputFieldContainer.translatesAutoresizingMaskIntoConstraints = false
-        errorLabel.translatesAutoresizingMaskIntoConstraints = false
-        let topFieldConstraint = inputFieldContainer.topAnchor.constraint(equalTo: self.topAnchor)
-        let leftFieldConstraint = inputFieldContainer.leftAnchor.constraint(equalTo: self.leftAnchor)
-        let rightFieldConstraint = inputFieldContainer.rightAnchor.constraint(equalTo: self.rightAnchor)
-        let heightFieldConstraint = inputFieldContainer.heightAnchor.constraint(equalToConstant: Constants.fieldSize.height)
-        let widthFieldConstraint = inputFieldContainer.widthAnchor.constraint(equalToConstant: Constants.fieldSize.width)
-
-        let topErrorLabelConstraint = errorLabel.topAnchor.constraint(equalTo: inputFieldContainer.bottomAnchor, constant: Constants.errorLabelTopSpace)
-        let leftErrorLabelConstraint = errorLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: Constants.errorLabelLeftSpace)
-        let rightErrorLabelConstraint = errorLabel.rightAnchor.constraint(equalTo: self.rightAnchor)
-        let bottomErrorLabelConstraint = errorLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-        let heightErrorlabelConstraint = errorLabel.heightAnchor.constraint(equalToConstant: Constants.errorLabelHeight)
-
-        NSLayoutConstraint.activate([topFieldConstraint,
-                                     leftFieldConstraint,
-                                     rightFieldConstraint,
-                                     heightFieldConstraint,
-                                     widthFieldConstraint,
-                                     topErrorLabelConstraint,
-                                     leftErrorLabelConstraint,
-                                     rightErrorLabelConstraint,
-                                     bottomErrorLabelConstraint,
-                                     heightErrorlabelConstraint])
+        inputFieldContainer.anchor(top: topAnchor,
+                                   leading: leadingAnchor,
+                                   bottom: nil,
+                                   trailing: trailingAnchor,
+                                   padding: .zero,
+                                   size: Constants.fieldSize)
+        errorLabel.anchor(top: inputFieldContainer.bottomAnchor,
+                          leading: leadingAnchor,
+                          bottom: bottomAnchor,
+                          trailing: trailingAnchor,
+                          padding: Constants.errorLabelPadding,
+                          size: Constants.errorLabelSize)
     }
 
 }

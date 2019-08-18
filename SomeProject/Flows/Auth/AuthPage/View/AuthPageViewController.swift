@@ -82,32 +82,20 @@ private extension AuthPageViewController {
     func configureBackground() {
         view.backgroundColor = Color.Main.background
         view.addSubview(scrollView)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.contentSize = UIScreen.main.bounds.size
         scrollView.keyboardDismissMode = .onDrag
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.bounces = false
-        let scrollViewTopConstraint = scrollView.topAnchor.constraint(equalTo: view.topAnchor)
-        let scrollViewLeftConstraint = scrollView.leftAnchor.constraint(equalTo: view.leftAnchor)
-        let scrollViewRightConstraint = scrollView.rightAnchor.constraint(equalTo: view.rightAnchor)
-        let scrollViewBottomConstraint = scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-
-        NSLayoutConstraint.activate([scrollViewTopConstraint, scrollViewLeftConstraint, scrollViewRightConstraint, scrollViewBottomConstraint])
+        scrollView.fillSuperview()
     }
 
     func configureLogo() {
         let image = UIImage(asset: Asset.AuthPage.logo)
         imageView.image = image
         scrollView.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-
-        let horizontalConstraint = imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
-        let verticalConstraint = imageView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor, constant: Constants.logoVerticalOffset)
-        let heightConstraint = imageView.heightAnchor.constraint(equalToConstant: Constants.logoSize.height)
-        let widthConstraint = imageView.widthAnchor.constraint(equalToConstant: Constants.logoSize.width)
-
-        NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint, heightConstraint, widthConstraint])
+        imageView.anchorCenter(to: scrollView, yOffset: Constants.logoVerticalOffset)
+        imageView.anchorSize(size: Constants.logoSize)
     }
 
     func configureInputFields() {
@@ -121,13 +109,11 @@ private extension AuthPageViewController {
         emailField.translatesAutoresizingMaskIntoConstraints = false
         passwordField.translatesAutoresizingMaskIntoConstraints = false
 
-        let emailTopConstraint = emailField.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: Constants.emailFieldTopOffset)
-        let emailHorizontalConstraint = emailField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
+        emailField.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: Constants.emailFieldTopOffset).isActive = true
+        emailField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
 
-        let passwordTopConstraint = passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: Constants.emailFieldBottomOffset)
-        let passwordHorizontalConstraint = passwordField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
-
-        NSLayoutConstraint.activate([emailTopConstraint, emailHorizontalConstraint, passwordTopConstraint, passwordHorizontalConstraint])
+        passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: Constants.emailFieldBottomOffset).isActive = true
+        passwordField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
     }
 
     func configureLoginButton() {
@@ -136,12 +122,9 @@ private extension AuthPageViewController {
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
 
-        let topConstraint = loginButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: Constants.emailFieldBottomOffset)
-        let horizantalConstraint = loginButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
-        let heightConstraint = loginButton.heightAnchor.constraint(equalToConstant: Constants.buttonSize.height)
-        let widthConstraint = loginButton.widthAnchor.constraint(equalToConstant: Constants.buttonSize.width)
-
-        NSLayoutConstraint.activate([topConstraint, horizantalConstraint, heightConstraint, widthConstraint])
+        loginButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: Constants.emailFieldBottomOffset).isActive = true
+        loginButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        loginButton.anchorSize(size: Constants.buttonSize)
     }
 
     func configureCloseKeyboardGesture() {
