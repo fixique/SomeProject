@@ -39,7 +39,7 @@ private extension AppDelegate {
         window?.makeKeyAndVisible()
     }
 
-    private func makeCoordinator() -> Coordinator {
+    func makeCoordinator() -> Coordinator {
         return ApplicationCoordinator()
     }
 
